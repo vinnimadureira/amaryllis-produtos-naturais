@@ -5,7 +5,6 @@ import {
   Clock,
   ArrowRight,
   Sparkles,
-  Zap,
   ShieldCheck,
   Truck,
   HelpCircle,
@@ -38,10 +37,6 @@ const buildWaLink = (raw: string, message?: string) => {
 
 const FAQS = [
   {
-    q: "Qual o endereço da loja física em Campinas?",
-    a: "Estamos na Rua Camargo Paes, 65, no bairro Jardim Guanabara, Campinas - SP (CEP: 13073-350). Contamos com fácil acesso para você visitar ou retirar seu pedido.",
-  },
-  {
     q: "Vocês têm pronta-entrega da Essential Nutrition?",
     a: "Sim! Somos parceira oficial da Essential Nutrition em Campinas e trabalhamos com a linha completa de proteínas, colágenos, creatina, aminoácidos e Chocolift. Chame no WhatsApp (19) 99351-2766 para confirmar seu sabor favorito.",
   },
@@ -56,7 +51,6 @@ const FAQS = [
 ];
 
 const TRUST_ITEMS = [
-  { icon: Zap, label: "Atendimento Ágil", sub: "WhatsApp (19) 99351-2766 · (19) 3243-5982" },
   { icon: ShieldCheck, label: "Gluten Free Friendly", sub: "Opções sem glúten e sem lactose" },
   { icon: Truck, label: "Loja & Delivery", sub: "Jardim Guanabara · Campinas - SP" },
 ];
@@ -168,7 +162,7 @@ const Contato = () => {
               </div>
             </motion.div>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
               {TRUST_ITEMS.map((item, i) => (
                 <motion.div
                   key={item.label}

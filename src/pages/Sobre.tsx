@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { Leaf, ShieldCheck, Sparkles, Store, HeartHandshake, Award, MapPin, Phone, Instagram } from "lucide-react";
+import { Leaf, ShieldCheck, Sparkles, Store, HeartHandshake, Award } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import { breadcrumbJsonLd, localBusinessJsonLd } from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { useSiteMedia } from "@/hooks/useSiteMedia";
-import { AMARYLLIS_COMPANY } from "@/lib/amaryllisFallbackData";
 import handsImgAsset from "@/assets/mrcone-hands.jpg.asset.json";
 
 const handsImg = handsImgAsset.url;
@@ -48,7 +47,7 @@ const Sobre = () => {
         <Breadcrumbs items={[{ label: "Sobre a Loja" }]} />
         <SectionTitle
           title="Tradição em saúde e bem-estar em Campinas"
-          subtitle="Amaryllis Produtos Naturais, Dietéticos e Fitoterápicos · Jardim Guanabara"
+          subtitle="Amaryllis Produtos Naturais, Dietéticos e Fitoterápicos"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
@@ -99,33 +98,6 @@ const Sobre = () => {
               Para quem convive com doença celíaca, sensibilidade ao glúten, intolerância à lactose ou diabetes, a Amaryllis é reconhecida pelo guia{" "}
               <strong className="text-foreground">Guindy como Gluten Free Friendly</strong>: selecionamos opções industrializadas e artesanais seguras, saborosas e livres de contaminação para que sua rotina alimentar seja leve e prazerosa.
             </p>
-
-            {/* Card de Localização Rápida */}
-            <div className="p-5 rounded-2xl bg-card border border-border shadow-soft space-y-2.5 pt-4">
-              <div className="flex items-start gap-2.5 text-sm text-foreground">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>
-                  <strong>Endereço:</strong> Rua Camargo Paes, 65 — Jardim Guanabara, Campinas - SP (CEP: 13073-350)
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5 text-sm text-foreground">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>
-                  <strong>Telefones:</strong> (19) 3243-5982 · WhatsApp (19) 99351-2766
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5 text-sm text-foreground">
-                <Instagram className="w-4 h-4 text-[hsl(var(--brand-brasa))] shrink-0" />
-                <a
-                  href={AMARYLLIS_COMPANY.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline font-medium"
-                >
-                  @amaryllisnaturais
-                </a>
-              </div>
-            </div>
           </motion.div>
         </div>
 
