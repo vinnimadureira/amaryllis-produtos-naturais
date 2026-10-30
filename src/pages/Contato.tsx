@@ -56,7 +56,7 @@ const FAQS = [
 ];
 
 const TRUST_ITEMS = [
-  { icon: Zap, label: "Atendimento Ágil", sub: "WhatsApp (19) 99351-2766 e Fixo (19) 3243-5982" },
+  { icon: Zap, label: "Atendimento Ágil", sub: "WhatsApp (19) 99351-2766 · (19) 3243-5982" },
   { icon: ShieldCheck, label: "Gluten Free Friendly", sub: "Opções sem glúten e sem lactose" },
   { icon: Truck, label: "Loja & Delivery", sub: "Jardim Guanabara · Campinas - SP" },
 ];
@@ -92,7 +92,7 @@ const Contato = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative max-w-3xl"
+            className="relative max-w-5xl"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-xs font-medium text-primary mb-5">
               <Sparkles className="w-3.5 h-3.5" />
@@ -114,10 +114,10 @@ const Contato = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.5 }}
-              className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 backdrop-blur p-6 md:p-7 shadow-warm-glow"
+              className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 backdrop-blur p-6 md:p-7 shadow-warm-glow max-w-4xl"
             >
               <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 shrink-0">
                   <div className="relative w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shrink-0 shadow-glow">
                     <Phone className="w-6 h-6 text-primary-foreground" />
                     <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -126,16 +126,16 @@ const Contato = () => {
                     </span>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary sm:whitespace-nowrap">
                       Loja Física &amp; Televendas
                     </p>
                     <a
                       href="tel:1932435982"
-                      className="block font-display text-2xl md:text-3xl text-foreground hover:text-primary transition-colors tracking-tight leading-tight"
+                      className="block font-display text-2xl md:text-3xl text-foreground hover:text-primary transition-colors tracking-tight leading-tight whitespace-nowrap"
                     >
                       (19) 3243-5982
                     </a>
-                    <p className="text-xs text-muted-foreground mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5 sm:whitespace-nowrap">
                       WhatsApp direto: <strong>(19) 99351-2766</strong>
                     </p>
                   </div>
@@ -146,7 +146,7 @@ const Contato = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow group rounded-full"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow group rounded-full whitespace-nowrap"
                   >
                     <a href={waLink} target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-5 h-5 mr-2" />
@@ -154,7 +154,7 @@ const Contato = () => {
                       <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full">
+                  <Button asChild variant="outline" size="lg" className="rounded-full whitespace-nowrap">
                     <a
                       href={AMARYLLIS_COMPANY.googleMapsUrl}
                       target="_blank"
@@ -168,7 +168,7 @@ const Contato = () => {
               </div>
             </motion.div>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
               {TRUST_ITEMS.map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -180,11 +180,11 @@ const Contato = () => {
                   <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                     <item.icon className="w-4 h-4 text-primary" />
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground leading-tight">
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-foreground leading-tight whitespace-nowrap">
                       {item.label}
                     </p>
-                    <p className="text-xs text-muted-foreground">{item.sub}</p>
+                    <p className="text-xs text-muted-foreground sm:whitespace-nowrap">{item.sub}</p>
                   </div>
                 </motion.div>
               ))}
