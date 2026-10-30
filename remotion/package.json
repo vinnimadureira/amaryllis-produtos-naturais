@@ -1,0 +1,24 @@
+{
+  "name": "mr-cone-hero-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render:desktop": "node scripts/render-remotion.mjs desktop",
+    "render:mobile": "node scripts/render-remotion.mjs mobile"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.470",
+    "@remotion/cli": "^4.0.470",
+    "@remotion/compositor-linux-x64-musl": "^4.0.470",
+    "@remotion/fonts": "^4.0.470",
+    "@remotion/google-fonts": "^4.0.470",
+    "@remotion/renderer": "^4.0.470",
+    "@remotion/transitions": "^4.0.470",
+    "@types/react": "^19.2.15",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "remotion": "^4.0.470",
+    "typescript": "^6.0.3"
+  }
+}

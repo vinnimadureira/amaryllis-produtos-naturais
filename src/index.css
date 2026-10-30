@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fira+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────
+   Amaryllis Produtos Naturais — Botanical & Sophisticated Design System
+   Paleta: Botânico & Sofisticado (Campinas · Jardim Guanabara)
+     • Off-White / Creme Orgânico   #f9f6f0
+     • Verde Sálvia / Oliva Nobre   #316242
+     • Terracota Suave (Amarílis)   #c24f33
+     • Dourado Fosco / Mel          #ba8531
+     • Verde Floresta Profundo      #172b1f
+   Tipografia: DM Serif Display (display) + Fira Sans (body)
+   ───────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Tema claro Botânico & Sofisticado (Padrão) */
+    --background: 38 35% 96%;            /* #f9f6f0 off-white creme */
+    --foreground: 148 30% 13%;           /* #172b1f verde floresta profundo */
+
+    --card: 40 40% 99%;                  /* #fefdfb linho claro */
+    --card-foreground: 148 30% 13%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 148 30% 13%;
+
+    --primary: 144 33% 29%;              /* #316242 verde sálvia / oliva */
+    --primary-foreground: 40 38% 97%;
+    --primary-glow: 14 58% 48%;          /* #c24f33 terracota amarílis */
+
+    --secondary: 38 26% 91%;             /* #eee8dc aveia / areia suave */
+    --secondary-foreground: 148 28% 18%;
+
+    --muted: 38 22% 92%;
+    --muted-foreground: 146 15% 36%;
+
+    --accent: 38 58% 46%;                /* #ba8531 dourado fosco */
+    --accent-foreground: 40 40% 99%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 20% 84%;
+    --input: 38 20% 86%;
+    --ring: 144 33% 29%;
+
+    --radius: 0.75rem;
+
+    /* Tokens semânticos Amaryllis */
+    --brand-deep: 148 32% 12%;           /* verde floresta escuro para seções de contraste/hero */
+    --brand-graphite: 38 28% 93%;        /* superfície secundária */
+    --brand-orange: 144 33% 29%;         /* verde sálvia principal */
+    --brand-orange-soft: 144 28% 90%;    /* fundo suave de chips botânicos */
+    --brand-ember: 144 33% 29%;          /* verde sálvia */
+    --brand-brasa: 14 58% 48%;           /* terracota amarílis */
+    --brand-cream: 38 35% 96%;
+    --brand-gold: 38 58% 46%;            /* dourado fosco */
+    --brand-steel: 146 12% 45%;
+    --brand-mist: 38 24% 90%;
+
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+    --gradient-ember: linear-gradient(135deg, hsl(144 33% 29%) 0%, hsl(142 38% 38%) 60%, hsl(38 58% 46%) 100%);
+    --gradient-charcoal: linear-gradient(180deg, hsl(38 35% 96%) 0%, hsl(38 26% 91%) 100%);
+    --gradient-cream-fade: linear-gradient(180deg, hsl(144 33% 29% / 0) 0%, hsl(144 33% 29% / 0.05) 100%);
+    --shadow-cinematic: 0 24px 48px -16px hsl(148 30% 13% / 0.14), 0 12px 24px -12px hsl(144 33% 29% / 0.1);
+    --shadow-warm-glow: 0 0 0 1px hsl(144 33% 29% / 0.18), 0 12px 32px -6px hsl(144 33% 29% / 0.28);
+
+    --sidebar-background: 38 30% 94%;
+    --sidebar-foreground: 148 28% 16%;
+    --sidebar-primary: 144 33% 29%;
+    --sidebar-primary-foreground: 40 38% 97%;
+    --sidebar-accent: 38 24% 88%;
+    --sidebar-accent-foreground: 148 28% 16%;
+    --sidebar-border: 38 20% 84%;
+    --sidebar-ring: 144 33% 29%;
+  }
+
+  .dark {
+    /* Variante Noturna Botânica */
+    --background: 148 26% 8%;            /* #0f1a13 verde botânico profundo */
+    --foreground: 38 35% 93%;            /* #f3eee4 creme suave */
+
+    --card: 148 22% 12%;                 /* #17261d musgo escuro */
+    --card-foreground: 38 35% 93%;
+
+    --popover: 148 22% 12%;
+    --popover-foreground: 38 35% 93%;
+
+    --primary: 142 36% 44%;              /* #489963 sálvia luminoso */
+    --primary-foreground: 148 28% 8%;
+    --primary-glow: 14 64% 58%;          /* #db6b4f amarílis terracota */
+
+    --secondary: 148 18% 16%;
+    --secondary-foreground: 38 30% 88%;
+
+    --muted: 148 16% 15%;
+    --muted-foreground: 144 14% 66%;
+
+    --accent: 38 62% 56%;                /* #d69e47 dourado fosco claro */
+    --accent-foreground: 148 26% 8%;
+
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 148 16% 20%;
+    --input: 148 16% 18%;
+    --ring: 142 36% 44%;
+
+    --brand-deep: 148 28% 7%;
+    --brand-graphite: 148 22% 12%;
+    --brand-orange: 142 36% 44%;
+    --brand-orange-soft: 144 28% 18%;
+    --brand-ember: 142 36% 44%;
+    --brand-brasa: 14 64% 58%;
+    --brand-cream: 38 35% 93%;
+    --brand-gold: 38 62% 56%;
+    --brand-steel: 144 12% 60%;
+    --brand-mist: 148 18% 16%;
+
+    --gradient-ember: linear-gradient(135deg, hsl(142 36% 44%) 0%, hsl(14 64% 58%) 100%);
+    --gradient-charcoal: linear-gradient(180deg, hsl(148 28% 7%) 0%, hsl(148 22% 12%) 100%);
+    --shadow-cinematic: 0 30px 60px -20px hsl(148 35% 4% / 0.7), 0 18px 36px -18px hsl(142 36% 44% / 0.18);
+    --shadow-warm-glow: 0 0 0 1px hsl(142 36% 44% / 0.25), 0 0 32px -6px hsl(142 36% 44% / 0.45);
+
+    --sidebar-background: 148 24% 10%;
+    --sidebar-foreground: 38 30% 88%;
+    --sidebar-primary: 142 36% 44%;
+    --sidebar-primary-foreground: 148 26% 8%;
+    --sidebar-accent: 148 18% 16%;
+    --sidebar-accent-foreground: 38 30% 88%;
+    --sidebar-border: 148 16% 20%;
+    --sidebar-ring: 142 36% 44%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11", "tnum";
+    letter-spacing: -0.005em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background rounded-sm;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.18);
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  /* ── Tipografia helpers ─────────────────────────── */
+  .font-display { font-family: var(--font-display); }
+  .font-body    { font-family: var(--font-body); }
+  .font-mono    { font-family: var(--font-mono); }
+
+  /* ── Cores semânticas Amaryllis ──────────────────── */
+  .text-brand-ember   { color: hsl(var(--brand-ember)); }
+  .text-brand-cream   { color: hsl(var(--brand-cream)); }
+  .text-brand-gold    { color: hsl(var(--brand-gold)); }
+  .bg-brand-deep      { background-color: hsl(var(--brand-deep)); }
+  .bg-brand-graphite  { background-color: hsl(var(--brand-graphite)); }
+  .bg-brand-ember     { background-color: hsl(var(--brand-ember)); }
+  .border-brand-ember { border-color: hsl(var(--brand-ember)); }
+  .border-brand-gold  { border-color: hsl(var(--brand-gold)); }
+
+  /* ── Compat com classes utilitárias ── */
+  .text-brand-orange { color: hsl(var(--brand-ember)); }
+  .bg-brand-orange   { background-color: hsl(var(--brand-ember)); }
+  .bg-brand-orange-soft { background-color: hsl(var(--brand-orange-soft)); }
+  .border-brand-orange { border-color: hsl(var(--brand-ember)); }
+  .bg-rose-light  { background-color: hsl(var(--brand-orange-soft)); }
+  .bg-cream       { background-color: hsl(var(--card)); }
+  .bg-beige       { background-color: hsl(var(--secondary)); }
+  .text-gold      { color: hsl(var(--brand-gold)); }
+  .gradient-rose  { background: var(--gradient-ember); }
+  .gradient-gold  {
+    background: linear-gradient(135deg,
+      hsl(var(--brand-gold) / 0.18) 0%,
+      hsl(var(--brand-ember) / 0.12) 50%,
+      hsl(var(--background)) 100%);
+  }
+
+  /* ── Gradientes / sombras botânicas ─────── */
+  .gradient-tech {
+    background:
+      radial-gradient(ellipse at top right, hsl(var(--brand-ember) / 0.18), transparent 60%),
+      var(--gradient-charcoal);
+  }
+  .gradient-orange { background: var(--gradient-ember); }
+  .gradient-ember  { background: var(--gradient-ember); }
+  .gradient-charcoal { background: var(--gradient-charcoal); }
+  .text-gradient-ember {
+    background: linear-gradient(90deg,
+      hsl(var(--brand-ember)) 0%,
+      hsl(var(--brand-brasa)) 55%,
+      hsl(var(--brand-gold)) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-orange { @apply text-gradient-ember; }
+  .shadow-soft {
+    box-shadow:
+      0 1px 3px hsl(148 30% 13% / 0.06),
+      0 10px 28px -12px hsl(148 30% 13% / 0.12);
+  }
+  .shadow-cinematic { box-shadow: var(--shadow-cinematic); }
+  .shadow-warm-glow { box-shadow: var(--shadow-warm-glow); }
+  .shadow-gold {
+    box-shadow:
+      0 2px 8px hsl(var(--brand-ember) / 0.14),
+      0 18px 40px -12px hsl(var(--brand-ember) / 0.22);
+  }
+  .shadow-glow {
+    box-shadow:
+      0 0 0 1px hsl(var(--brand-ember) / 0.2),
+      0 8px 24px -4px hsl(var(--brand-ember) / 0.32),
+      0 0 48px -8px hsl(var(--brand-gold) / 0.22);
+  }
+  .hover\:shadow-glow:hover {
+    box-shadow:
+      0 0 0 1px hsl(var(--brand-ember) / 0.3),
+      0 10px 32px -4px hsl(var(--brand-ember) / 0.42),
+      0 0 56px -8px hsl(var(--brand-gold) / 0.3);
+  }
+
+  /* Textura orgânica sutil */
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  }
+
+  @keyframes steam-rise {
+    0%   { opacity: 0; transform: translateY(8px) scale(1); }
+    40%  { opacity: 0.5; }
+    100% { opacity: 0; transform: translateY(-32px) scale(1.15); }
+  }
+  .animate-steam { animation: steam-rise 3.5s ease-out infinite; }
+
+  @keyframes ember-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--brand-ember) / 0.4); }
+    50%      { box-shadow: 0 0 0 14px hsl(var(--brand-ember) / 0); }
+  }
+  .animate-ember { animation: ember-pulse 2.2s ease-in-out infinite; }
+
+  .layer-stripes {
+    background-image: repeating-linear-gradient(
+      0deg,
+      hsl(var(--brand-ember) / 0.1) 0px,
+      hsl(var(--brand-ember) / 0.1) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  }
+
+  /* ── Shimmer skeletons ──────────────────────────── */
+  .shimmer-block {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 25%,
+      hsl(var(--muted-foreground) / 0.08) 50%,
+      hsl(var(--muted)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Scrollbar botânica */
+  .cart-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--brand-ember) / 0.45) transparent;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+  .cart-scroll::-webkit-scrollbar { width: 8px; }
+  .cart-scroll::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, transparent 0%, hsl(var(--brand-ember) / 0.06) 50%, transparent 100%);
+    border-radius: 999px; margin: 8px 0;
+  }
+  .cart-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--brand-ember) / 0.75), hsl(var(--brand-gold) / 0.55));
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  .cart-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--brand-ember)), hsl(var(--brand-gold)));
+  }
+
+  html:not(.admin-shell):not(:has(body.admin-active)) {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--brand-ember) / 0.45) transparent;
+  }
+  html:not(.admin-shell):not(:has(body.admin-active))::-webkit-scrollbar,
+  body:not(.admin-active)::-webkit-scrollbar { width: 10px; height: 10px; }
+  html:not(.admin-shell):not(:has(body.admin-active))::-webkit-scrollbar-thumb,
+  body:not(.admin-active)::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--brand-ember) / 0.75), hsl(var(--brand-gold) / 0.55));
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Admin: mantém Inter limpa */
+  .admin-shell,
+  .admin-shell *,
+  body.admin-active,
+  body.admin-active * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  }
+  .admin-shell,
+  body.admin-active {
+    font-feature-settings: "cv11", "ss01", "ss03", "cv02", "tnum";
+    letter-spacing: -0.011em;
+  }
+  .admin-shell h1, .admin-shell h2, .admin-shell h3, .admin-shell h4, .admin-shell h5,
+  body.admin-active h1, body.admin-active h2, body.admin-active h3, body.admin-active h4, body.admin-active h5 {
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif !important;
+  }
+  .admin-shell *,
+  body.admin-active * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .admin-shell *::-webkit-scrollbar,
+  body.admin-active *::-webkit-scrollbar { width: 6px; height: 6px; }
+  .admin-shell *::-webkit-scrollbar-thumb,
+  body.admin-active *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 9999px;
+  }
+  .admin-shell *:hover::-webkit-scrollbar-thumb,
+  body.admin-active *:hover::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--brand-ember) / 0.45);
+  }
+}

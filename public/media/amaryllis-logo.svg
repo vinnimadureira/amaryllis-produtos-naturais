@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" fill="none">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B7A57" />
+      <stop offset="100%" stop-color="#244F37" />
+    </linearGradient>
+    <linearGradient id="flowerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D96B4E" />
+      <stop offset="100%" stop-color="#B0462B" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C99A49" />
+      <stop offset="50%" stop-color="#E2B86B" />
+      <stop offset="100%" stop-color="#B58332" />
+    </linearGradient>
+  </defs>
+
+  <!-- Botanical Emblem Circle -->
+  <g transform="translate(10, 9)">
+    <circle cx="46" cy="46" r="44" fill="#F6F1E7" stroke="url(#goldGrad)" stroke-width="2" />
+    <circle cx="46" cy="46" r="39" fill="none" stroke="#3B7A57" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 3" />
+
+    <!-- Stem & Sage Leaves -->
+    <path d="M46 78 C46 62, 46 50, 46 38" stroke="url(#leafGrad)" stroke-width="2.6" stroke-linecap="round" />
+    <path d="M46 68 C32 65, 22 54, 24 42 C34 44, 43 54, 46 64 Z" fill="url(#leafGrad)" opacity="0.92" />
+    <path d="M46 68 C60 65, 70 54, 68 42 C58 44, 49 54, 46 64 Z" fill="url(#leafGrad)" opacity="0.92" />
+
+    <!-- Amaryllis Petals -->
+    <path d="M46 46 C36 34, 35 18, 46 11 C57 18, 56 34, 46 46 Z" fill="url(#flowerGrad)" />
+    <path d="M46 46 C31 40, 20 28, 25 18 C35 20, 42 32, 46 46 Z" fill="url(#flowerGrad)" opacity="0.88" />
+    <path d="M46 46 C61 40, 72 28, 67 18 C57 20, 50 32, 46 46 Z" fill="url(#flowerGrad)" opacity="0.88" />
+
+    <!-- Stamen / Gold Pistils -->
+    <path d="M46 42 C43 32, 42 26, 40 22" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M46 42 C46 31, 46 25, 46 20" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M46 42 C49 32, 50 26, 52 22" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" />
+    <circle cx="40" cy="22" r="2" fill="#E2B86B" />
+    <circle cx="46" cy="19.5" r="2.2" fill="#E2B86B" />
+    <circle cx="52" cy="22" r="2" fill="#E2B86B" />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="114" y="54" font-family="Georgia, 'DM Serif Display', serif" font-size="38" font-weight="400" fill="#3B7A57" letter-spacing="0.5">
+    Amaryllis
+  </text>
+  <line x1="115" y1="65" x2="338" y2="65" stroke="url(#goldGrad)" stroke-width="1.2" stroke-opacity="0.7" />
+  <text x="116" y="82" font-family="'Fira Sans', 'Inter', sans-serif" font-size="11.5" font-weight="600" fill="#B0462B" letter-spacing="3.4">
+    PRODUTOS NATURAIS
+  </text>
+  <text x="116" y="96" font-family="'Fira Sans', 'Inter', sans-serif" font-size="9" font-weight="500" fill="#7D8C82" letter-spacing="2.2">
+    JARDIM GUANABARA · CAMPINAS
+  </text>
+</svg>
+
