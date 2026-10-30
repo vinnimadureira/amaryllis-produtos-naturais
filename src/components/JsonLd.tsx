@@ -10,7 +10,7 @@ export const localBusinessJsonLd = {
   alternateName: "Amaryllis Produtos Naturais e Dietéticos e Fitoterápicos",
   description:
     "Loja tradicional no bairro Jardim Guanabara em Campinas especializada em produtos naturais, dietéticos, orgânicos, integrais, fitoterápicos, sem glúten (Gluten Free Friendly) e sem lactose. Parceira oficial Essential Nutrition.",
-  url: "/",
+  url: "https://www.amaryllisnaturais.com.br/",
   telephone: "+55-19-3243-5982",
   priceRange: "$$",
   address: {
@@ -31,7 +31,7 @@ export const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
-  url: "/",
+  url: "https://www.amaryllisnaturais.com.br/",
   description:
     "Amaryllis Produtos Naturais em Campinas: suplementos Essential Nutrition, produtos sem glúten, sem lactose, orgânicos, integrais e fitoterápicos.",
   inLanguage: "pt-BR",

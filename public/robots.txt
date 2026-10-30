@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.imperiocones.com.br/sitemap.xml
+Sitemap: https://www.amaryllisnaturais.com.br/sitemap.xml
