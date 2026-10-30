@@ -106,7 +106,7 @@ const Contato = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Envie sua lista da nutricionista, consulte produtos sem glúten, sem lactose, fitoterápicos ou suplementos da <strong>Essential Nutrition</strong>. Você pode retirar na nossa loja na Rua Camargo Paes, 65 ou receber em casa.
+              Envie sua lista da nutricionista, consulte produtos sem glúten, sem lactose, fitoterápicos ou suplementos da <strong>Essential Nutrition</strong>. Você pode retirar na nossa loja ou receber em casa.
             </p>
 
             {/* CENTRAL DE CONTATO */}
