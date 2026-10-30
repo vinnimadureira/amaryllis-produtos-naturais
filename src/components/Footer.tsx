@@ -129,7 +129,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => (
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-border/60">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Amaryllis Produtos Naturais e Dietéticos · Jardim Guanabara, Campinas - SP. Todos os direitos reservados.
+          © {new Date().getFullYear()} Amaryllis Produtos Naturais e Dietéticos. Todos os direitos reservados.
         </p>
         <div className="flex items-center gap-4">
           <Link to="/admin/login" className="text-muted-foreground/40 hover:text-muted-foreground/80 transition-colors" aria-label="Área administrativa">
