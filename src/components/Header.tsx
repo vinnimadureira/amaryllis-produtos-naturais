@@ -50,7 +50,7 @@ const Header = () => {
             whileHover={{ scale: 1.03 }}
             src={logoAsset.url}
             alt="Amaryllis Produtos Naturais — Campinas"
-            className="h-11 md:h-14 w-auto object-contain"
+            className="h-12 md:h-[60px] w-auto object-contain"
             width={280}
             height={90}
           />
