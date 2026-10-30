@@ -85,10 +85,10 @@ const Sobre = () => {
               </span>
             </div>
             <h3 className="font-display text-3xl sm:text-4xl text-foreground leading-tight">
-              Sua referência em produtos naturais, suplementos e alimentação restritiva no Guanabara 🌿
+              Sua referência em produtos naturais, suplementos e alimentação restritiva 🌿
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Localizada na tradicional <strong>Rua Camargo Paes, 65, no Jardim Guanabara</strong>, a{" "}
+              A{" "}
               <strong className="text-foreground">Amaryllis Produtos Naturais e Dietéticos e Fitoterápicos</strong>{" "}
               construiu sua história em Campinas unindo curadoria rigorosa de produtos saudáveis e um atendimento acolhedor, próximo e prestativo.
             </p>
