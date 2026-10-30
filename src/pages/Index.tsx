@@ -87,15 +87,27 @@ const Index = () => {
 
       {/* ───────── 2. VITRINE DE PRODUTOS MAIS DESEJADOS ───────── */}
       {products.length > 0 && (
-        <section className="py-20 lg:py-28 border-b border-border/60 bg-background">
+        <section className="py-14 sm:py-20 lg:py-28 border-b border-border/60 bg-background">
           <div className="container">
-            <SectionTitle
-              title="Mais Desejados da Amaryllis"
-              subtitle="Suplementos Essential Nutrition, itens seguros sem glúten, castanhas selecionadas e fitoterápicos"
-            />
+            <div className="flex items-end justify-between mb-8 sm:mb-12">
+              <div>
+                <span className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-primary">
+                  Destaques da Semana
+                </span>
+                <h2 className="font-display text-2xl sm:text-4xl text-foreground font-semibold mt-1">
+                  Mais Desejados da Amaryllis
+                </h2>
+              </div>
+              <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex rounded-full text-xs">
+                <Link to="/catalogo">
+                  Ver catálogo completo <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                </Link>
+              </Button>
+            </div>
 
-            <div className="sm:hidden mt-8">
-              <MobileCarousel itemWidthClass="w-[78%]">
+            {/* Carrossel de 2 Itens por Tela no Mobile */}
+            <div className="sm:hidden -mx-4 px-4">
+              <MobileCarousel itemWidthClass="w-[46%]" gapClass="gap-2.5">
                 {products.map((p: any) => (
                   <ProductCard
                     key={p.id}
@@ -113,7 +125,8 @@ const Index = () => {
               </MobileCarousel>
             </div>
 
-            <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {/* Grid no Desktop */}
+            <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {products.map((p: any) => (
                 <ProductCard
                   key={p.id}
@@ -130,14 +143,14 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="text-center mt-14">
+            <div className="text-center mt-8 sm:mt-12 sm:hidden">
               <Button
                 asChild
-                size="lg"
-                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
+                size="sm"
+                className="w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs py-5"
               >
                 <Link to="/catalogo">
-                  Explorar Catálogo Completo <ArrowRight className="w-4 h-4 ml-2" />
+                  Explorar Catálogo Completo <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                 </Link>
               </Button>
             </div>
@@ -147,13 +160,28 @@ const Index = () => {
 
       {/* ───────── 3. DEPOIMENTOS DE CLIENTES E PROFISSIONAIS ───────── */}
       {testimonials.length > 0 && (
-        <section className="py-20 lg:py-28 bg-secondary/10 border-b border-border/60">
+        <section className="py-14 sm:py-20 lg:py-28 bg-secondary/10 border-b border-border/60">
           <div className="container">
             <SectionTitle
               title="A Confiança de Quem Vive com Mais Saúde"
               subtitle="Depoimentos de clientes, celíacos e nutricionistas que confiam na curadoria da Amaryllis"
             />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            {/* Carrossel Mobile para Depoimentos */}
+            <div className="sm:hidden mt-8 -mx-4 px-4">
+              <MobileCarousel itemWidthClass="w-[84%]" gapClass="gap-3">
+                {testimonials.slice(0, 6).map((t: any) => (
+                  <TestimonialCard
+                    key={t.id}
+                    name={t.name}
+                    text={t.text}
+                    rating={t.rating}
+                  />
+                ))}
+              </MobileCarousel>
+            </div>
+
+            {/* Grid Desktop */}
+            <div className="hidden sm:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {testimonials.slice(0, 6).map((t: any) => (
                 <TestimonialCard
                   key={t.id}

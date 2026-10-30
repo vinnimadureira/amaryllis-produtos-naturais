@@ -628,8 +628,8 @@ const Catalogo = () => {
 
         {/* Products grid */}
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+            {[...Array(8)].map((_, i) => (
               <ProductCardSkeleton key={i} />
             ))}
           </div>
@@ -641,7 +641,7 @@ const Catalogo = () => {
           </p>
         ) : (
           <>
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div layout className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               {paginatedProducts.map((product: any) => (
                 <ProductCard
                   key={product.id}

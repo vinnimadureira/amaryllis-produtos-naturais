@@ -196,15 +196,15 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(({
           )}
 
           {/* Top-left botanical badge */}
-          <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1 rounded-full bg-background/85 backdrop-blur-md border border-primary/30 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
-            <Leaf className="w-3 h-3" />
-            Seleção Saudável
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-20 inline-flex items-center gap-1 rounded-full bg-background/85 backdrop-blur-md border border-primary/30 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-primary">
+            <Leaf className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+            <span className="hidden xs:inline">Seleção</span> Saudável
           </div>
         </div>
         {onToggleFavorite && (
           <button
             onClick={handleToggleFavorite}
-            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-card/85 backdrop-blur-sm flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-card/85 backdrop-blur-sm flex items-center justify-center shadow-sm hover:scale-110 transition-transform"
             aria-label={isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
           >
             <AnimatePresence mode="wait">
@@ -216,7 +216,7 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(({
                 transition={{ duration: 0.2, type: "spring", stiffness: 400 }}
               >
                 <Heart
-                  className={`w-4.5 h-4.5 transition-colors ${
+                  className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors ${
                     isFavorite
                       ? "fill-primary text-primary"
                       : "text-muted-foreground hover:text-primary"
@@ -227,47 +227,51 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(({
           </button>
         )}
       </Link>
-      <div className="p-4">
-        <div className="flex items-center gap-2 flex-wrap">
+      <div className="p-2.5 sm:p-4 flex flex-col justify-between flex-1">
+        <div>
           {category && (
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">
+            <span className="text-[10px] sm:text-xs font-medium text-primary uppercase tracking-wider line-clamp-1">
               {category}
             </span>
           )}
+          <Link to={`/produto/${id}`}>
+            <h3 className="font-serif text-xs sm:text-base font-semibold mt-0.5 sm:mt-1 text-foreground hover:text-primary transition-colors line-clamp-2 leading-tight">
+              {name}
+            </h3>
+          </Link>
+          <p className="hidden sm:block text-xs text-muted-foreground mt-1 line-clamp-2">{description}</p>
         </div>
-        <Link to={`/produto/${id}`}>
-          <h3 className="font-serif text-lg font-semibold mt-1 text-foreground hover:text-primary transition-colors line-clamp-1">
-            {name}
-          </h3>
-        </Link>
-        <p className="text-sm text-muted-foreground mt-1 line-clamp-2 min-h-[2.5rem]">{description}</p>
-        <div className="flex items-end justify-between gap-3 mt-4">
-          <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-              {canBuy ? "Valor unitário" : "Sob consulta"}
+
+        <div className="flex items-center justify-between gap-1.5 sm:gap-3 mt-2 sm:mt-4 pt-1.5 sm:pt-2 border-t border-border/40">
+          <div className="flex flex-col min-w-0">
+            <span className="hidden sm:inline-block text-[9px] uppercase tracking-wider text-muted-foreground">
+              {canBuy ? "Valor" : "Sob consulta"}
             </span>
-            <span className="font-serif text-2xl font-bold text-foreground leading-none">{price}</span>
+            <span className="font-serif text-sm sm:text-lg font-bold text-foreground leading-none truncate">
+              {price}
+            </span>
           </div>
+
           {canBuy ? (
             <Button
               size="sm"
               onClick={handleBuyNow}
-              className="gap-1.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-gold"
+              className="h-7 sm:h-8 px-2 sm:px-3 text-[11px] sm:text-xs rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm shrink-0 gap-1"
               aria-label={`Adicionar ${name} ao carrinho`}
             >
-              <Plus className="w-4 h-4" />
-              Adicionar
+              <Plus className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Add</span>
             </Button>
           ) : (
             <Button
               size="sm"
               variant="outline"
               onClick={handleWhatsApp}
-              className="gap-1.5 rounded-full border-primary/40 text-primary hover:bg-primary/10"
+              className="h-7 sm:h-8 px-2 sm:px-2.5 text-[11px] rounded-full border-primary/40 text-primary hover:bg-primary/10 shrink-0 gap-1"
               aria-label={`Pedir ${name} pelo WhatsApp`}
             >
-              <MessageCircle className="w-4 h-4" />
-              Pedir no Zap
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Zap</span>
             </Button>
           )}
         </div>

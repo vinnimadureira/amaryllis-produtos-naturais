@@ -366,4 +366,13 @@
   body.admin-active *:hover::-webkit-scrollbar-thumb {
     background-color: hsl(var(--brand-ember) / 0.45);
   }
+
+  /* Utilitário para Carrosséis Touch Fluidos sem Barra Visível */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
