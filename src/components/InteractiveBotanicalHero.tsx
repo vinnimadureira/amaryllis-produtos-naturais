@@ -282,8 +282,6 @@ export const InteractiveBotanicalHero: React.FC<InteractiveBotanicalHeroProps> =
             className="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-widest shadow-lg"
           >
             <Leaf className="w-3.5 h-3.5 text-accent" />
-            <span>Jardim Guanabara · Campinas - SP</span>
-            <span className="opacity-40">•</span>
             <span className="text-accent">Parceira Oficial Essential Nutrition</span>
           </motion.div>
 
