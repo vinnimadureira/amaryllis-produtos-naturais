@@ -202,25 +202,22 @@ const Contato = () => {
               viewport={{ once: true }}
               className="rounded-2xl border border-border bg-card p-6 shadow-soft"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-display text-lg text-foreground leading-tight">
                     Onde estamos
                   </p>
-                  <p className="text-xs text-muted-foreground">
-                    Jardim Guanabara · Campinas - SP
+                  <p className="text-sm text-foreground font-medium mt-1">
+                    Rua Camargo Paes, 65
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Jardim Guanabara, Campinas - SP · CEP: 13073-350
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-foreground font-medium">
-                Rua Camargo Paes, 65
-              </p>
-              <p className="text-sm text-muted-foreground mt-0.5">
-                Jardim Guanabara, Campinas - SP · CEP: 13073-350
-              </p>
               <div className="mt-4 pt-4 border-t border-border/60 flex flex-wrap gap-3">
                 <a
                   href={AMARYLLIS_COMPANY.instagram}
