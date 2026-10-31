@@ -369,13 +369,13 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
                   ? "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%)"
                   : rawTheme === "minimal"
                   ? "radial-gradient(ellipse 65% 80% at 25% 50%, rgba(0,0,0,0.65), transparent 75%)"
-                  : "linear-gradient(to right, rgba(6,35,24,0.88) 0%, rgba(6,35,24,0.45) 50%, rgba(6,35,24,0.15) 100%)",
+                  : "linear-gradient(to right, rgba(10,20,15,0.78) 0%, rgba(8,16,12,0.4) 50%, rgba(0,0,0,0.1) 100%)",
             }}
           />
 
-          {/* Gradiente inferior suave para conectar com a seção seguinte */}
+          {/* Gradiente inferior suave com neutralidade total (sem contaminar controles de vídeo) */}
           <div
-            className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-emerald-950 via-emerald-950/40 to-transparent pointer-events-none z-10"
+            className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10"
             style={{ opacity: Math.min(1, overlayOpacity * 1.5) }}
           />
         </div>
@@ -485,7 +485,7 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
       {/* ══════════════════════════════════════════════════════════════════
           2. FAIXA DE MÉTRICAS (Carrossel Horizontal no Mobile)
          ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative z-30 -mt-2 bg-gradient-to-b from-emerald-950 via-background to-background py-6 sm:py-8 border-b border-border/60">
+      <section className="relative z-30 -mt-2 bg-background py-6 sm:py-8 border-b border-border/60">
         <div className="container">
           <div className="flex md:grid md:grid-cols-4 gap-3 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 md:pb-0">
             {[

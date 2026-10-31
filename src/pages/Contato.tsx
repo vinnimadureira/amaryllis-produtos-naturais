@@ -75,7 +75,7 @@ const Contato = () => {
         <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card via-card to-secondary/50 p-8 md:p-14 mb-10 shadow-soft">
           <div
             aria-hidden
-            className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/15 blur-3xl pointer-events-none"
+            className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-accent/10 blur-3xl pointer-events-none"
           />
           <div
             aria-hidden
@@ -112,8 +112,8 @@ const Contato = () => {
             >
               <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div className="flex items-center gap-4 shrink-0">
-                  <div className="relative w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shrink-0 shadow-glow">
-                    <Phone className="w-6 h-6 text-primary-foreground" />
+                  <div className="relative w-14 h-14 rounded-2xl bg-slate-900 text-white dark:bg-card dark:border dark:border-border flex items-center justify-center shrink-0 shadow-md">
+                    <Phone className="w-6 h-6 text-white" />
                     <span className="absolute -top-1 -right-1 flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-accent border-2 border-card" />
@@ -140,7 +140,7 @@ const Contato = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow group rounded-full whitespace-nowrap"
+                    className="bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold shadow-md group rounded-full whitespace-nowrap"
                   >
                     <a href={waLink} target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-5 h-5 mr-2" />

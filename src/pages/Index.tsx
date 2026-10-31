@@ -197,7 +197,7 @@ const Index = () => {
 
       {/* ───────── 4. CTA FINAL DE ALTA CONVERSÃO ───────── */}
       <section className="py-20 lg:py-28 relative overflow-hidden bg-emerald-950 text-white">
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-emerald-500/20 blur-[130px] rounded-full" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-white/5 blur-[120px] rounded-full" />
         <div className="container relative text-center max-w-3xl">
           <Sparkles className="w-8 h-8 text-amber-300 mx-auto mb-5" />
           <h2 className="font-display text-3xl sm:text-5xl leading-[1.08] text-white">
@@ -207,10 +207,10 @@ const Index = () => {
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full h-14 px-8 text-base shadow-glow"
+              className="bg-white hover:bg-white/95 text-emerald-950 font-bold rounded-full h-14 px-8 text-base shadow-2xl transition-all hover:scale-105"
             >
               <a href={waUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-5 h-5 mr-2 text-[#25D366]" />
                 Falar com a Equipe no WhatsApp
               </a>
             </Button>
@@ -218,14 +218,14 @@ const Index = () => {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 rounded-full h-14 px-7 bg-transparent text-base"
+              className="border-white/40 text-white hover:bg-white/15 rounded-full h-14 px-7 bg-white/5 backdrop-blur-md text-base"
             >
               <a
                 href={AMARYLLIS_COMPANY.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="w-5 h-5 mr-2 text-pink-400" />
+                <Instagram className="w-5 h-5 mr-2 text-rose-300" />
                 @amaryllisnaturais
               </a>
             </Button>

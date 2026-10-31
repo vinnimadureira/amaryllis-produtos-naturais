@@ -68,8 +68,8 @@
     --gradient-ember: linear-gradient(135deg, hsl(144 33% 29%) 0%, hsl(142 38% 38%) 60%, hsl(38 58% 46%) 100%);
     --gradient-charcoal: linear-gradient(180deg, hsl(38 35% 96%) 0%, hsl(38 26% 91%) 100%);
     --gradient-cream-fade: linear-gradient(180deg, hsl(144 33% 29% / 0) 0%, hsl(144 33% 29% / 0.05) 100%);
-    --shadow-cinematic: 0 24px 48px -16px hsl(148 30% 13% / 0.14), 0 12px 24px -12px hsl(144 33% 29% / 0.1);
-    --shadow-warm-glow: 0 0 0 1px hsl(144 33% 29% / 0.18), 0 12px 32px -6px hsl(144 33% 29% / 0.28);
+    --shadow-cinematic: 0 24px 48px -16px rgba(0, 0, 0, 0.12), 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+    --shadow-warm-glow: 0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
 
     --sidebar-background: 38 30% 94%;
     --sidebar-foreground: 148 28% 16%;
@@ -125,8 +125,8 @@
 
     --gradient-ember: linear-gradient(135deg, hsl(142 36% 44%) 0%, hsl(14 64% 58%) 100%);
     --gradient-charcoal: linear-gradient(180deg, hsl(148 28% 7%) 0%, hsl(148 22% 12%) 100%);
-    --shadow-cinematic: 0 30px 60px -20px hsl(148 35% 4% / 0.7), 0 18px 36px -18px hsl(142 36% 44% / 0.18);
-    --shadow-warm-glow: 0 0 0 1px hsl(142 36% 44% / 0.25), 0 0 32px -6px hsl(142 36% 44% / 0.45);
+    --shadow-cinematic: 0 30px 60px -20px rgba(0, 0, 0, 0.7), 0 18px 36px -18px rgba(0, 0, 0, 0.4);
+    --shadow-warm-glow: 0 4px 24px -2px rgba(0, 0, 0, 0.4), 0 1px 4px -1px rgba(0, 0, 0, 0.2);
 
     --sidebar-background: 148 24% 10%;
     --sidebar-foreground: 38 30% 88%;
@@ -227,20 +227,18 @@
   .shadow-warm-glow { box-shadow: var(--shadow-warm-glow); }
   .shadow-gold {
     box-shadow:
-      0 2px 8px hsl(var(--brand-ember) / 0.14),
-      0 18px 40px -12px hsl(var(--brand-ember) / 0.22);
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      0 18px 40px -12px rgba(0, 0, 0, 0.12);
   }
   .shadow-glow {
     box-shadow:
-      0 0 0 1px hsl(var(--brand-ember) / 0.2),
-      0 8px 24px -4px hsl(var(--brand-ember) / 0.32),
-      0 0 48px -8px hsl(var(--brand-gold) / 0.22);
+      0 4px 16px -2px rgba(0, 0, 0, 0.12),
+      0 2px 6px -1px rgba(0, 0, 0, 0.06);
   }
   .hover\:shadow-glow:hover {
     box-shadow:
-      0 0 0 1px hsl(var(--brand-ember) / 0.3),
-      0 10px 32px -4px hsl(var(--brand-ember) / 0.42),
-      0 0 56px -8px hsl(var(--brand-gold) / 0.3);
+      0 8px 24px -4px rgba(0, 0, 0, 0.18),
+      0 4px 10px -2px rgba(0, 0, 0, 0.08);
   }
 
   /* Textura orgânica sutil */

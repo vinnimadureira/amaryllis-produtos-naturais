@@ -257,7 +257,7 @@ const CartDrawer = () => {
       {/* Cart trigger button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:bg-rose-dark transition-all"
+        className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-slate-900 hover:bg-black text-white dark:bg-card dark:text-foreground dark:border dark:border-border shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
         aria-label={`Carrinho (${totalItems} itens)`}
       >
         <ShoppingBag className="w-6 h-6" />

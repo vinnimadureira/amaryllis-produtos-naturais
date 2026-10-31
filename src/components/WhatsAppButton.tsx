@@ -17,7 +17,7 @@ const FloatingContactButton = forwardRef<HTMLAnchorElement>((_, ref) => {
     : null;
 
   const commonClass =
-    "flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-glow hover:shadow-xl transition-shadow";
+    "flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-xl hover:shadow-2xl transition-all";
 
   return (
     <motion.div
@@ -37,7 +37,7 @@ const FloatingContactButton = forwardRef<HTMLAnchorElement>((_, ref) => {
           aria-label="Falar com a Amaryllis no WhatsApp (19) 99351-2766"
           title="WhatsApp Amaryllis (19) 99351-2766"
         >
-          <MessageCircle className="w-7 h-7 text-primary-foreground" />
+          <MessageCircle className="w-7 h-7 text-white" />
         </a>
       ) : (
         <Link
@@ -46,7 +46,7 @@ const FloatingContactButton = forwardRef<HTMLAnchorElement>((_, ref) => {
           className={commonClass}
           aria-label="Falar com a Amaryllis"
         >
-          <MessageCircle className="w-7 h-7 text-primary-foreground" />
+          <MessageCircle className="w-7 h-7 text-white" />
         </Link>
       )}
     </motion.div>
