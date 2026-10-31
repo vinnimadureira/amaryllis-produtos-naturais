@@ -834,7 +834,7 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
         <div className="relative z-10 container">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-emerald-300">
-              <Leaf className="w-3 h-3" /> Tradição & Curadoria em Campinas
+              <Leaf className="w-3 h-3" /> Tradição & Curadoria
             </span>
 
             <h2 className="font-display text-2xl sm:text-5xl lg:text-6xl font-normal leading-tight mt-4 sm:mt-6">
@@ -843,7 +843,7 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
             </h2>
 
             <p className="mt-4 sm:mt-6 text-xs sm:text-lg text-white/80 leading-relaxed font-light">
-              Nossa loja física no Jardim Guanabara elimina as incertezas sobre rótulos e restrições: oferecemos suplementação pura e alimentos verdadeiros com suporte consultivo de quem entende.
+              Eliminamos as incertezas sobre rótulos e restrições: oferecemos suplementação pura e alimentos verdadeiros com suporte consultivo de quem entende.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-8 pt-6 border-t border-white/15 max-w-md">
