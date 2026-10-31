@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import {
   ArrowRight,
   Leaf,
@@ -303,12 +305,33 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
   const currentSlide = HERO_SLIDES[activeSlide];
   const currentGoalData = HEALTH_GOALS.find((g) => g.id === activeGoal) || HEALTH_GOALS[0];
 
+  // Carrega configurações do Hero definidas no Painel Admin (site_settings)
+  const { data: heroSettings = [] } = useQuery({
+    queryKey: ["hero-video-public"],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from("site_settings")
+        .select("key, value")
+        .in("key", ["hero_overlay_opacity", "hero_video_brightness", "hero_overlay_theme"]);
+      return data || [];
+    },
+    staleTime: 1000 * 60 * 5,
+  });
+
+  const rawOverlay = heroSettings.find((s: any) => s.key === "hero_overlay_opacity")?.value;
+  const rawBrightness = heroSettings.find((s: any) => s.key === "hero_video_brightness")?.value;
+  const rawTheme = heroSettings.find((s: any) => s.key === "hero_overlay_theme")?.value || "botanico";
+
+  // Padrão suave: 30% de escurecimento (vídeo claro e visível!) e 100% de brilho natural
+  const overlayOpacity = rawOverlay !== undefined && rawOverlay !== null ? parseFloat(rawOverlay) : 0.30;
+  const videoBrightness = rawBrightness !== undefined && rawBrightness !== null ? parseFloat(rawBrightness) : 1.00;
+
   return (
     <div className="relative w-full bg-background text-foreground overflow-hidden">
       {/* ══════════════════════════════════════════════════════════════════
           1. HERO CINEMÁTICO FULL-BLEED (Mobile-Optimized)
          ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-[88svh] sm:min-h-[92svh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-emerald-950">
+      <section className="relative w-full min-h-[88svh] sm:min-h-[92svh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-black">
         {/* Background Videos */}
         <div className="absolute inset-0 z-0">
           {HERO_SLIDES.map((slide, idx) => (
@@ -330,15 +353,31 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08] saturate-[1.12]"
+                style={{ filter: `brightness(${videoBrightness}) contrast(1.06) saturate(1.1)` }}
+                className="w-full h-full object-cover object-center"
               />
             </motion.div>
           ))}
 
-          {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/60 to-black/40 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-950/50 to-transparent z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(16,185,129,0.2),transparent_70%)] z-10" />
+          {/* Overlay Dinâmico Controlado pelo Admin */}
+          <div
+            className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-300"
+            style={{
+              opacity: overlayOpacity,
+              background:
+                rawTheme === "cinematic"
+                  ? "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%)"
+                  : rawTheme === "minimal"
+                  ? "radial-gradient(ellipse 65% 80% at 25% 50%, rgba(0,0,0,0.65), transparent 75%)"
+                  : "linear-gradient(to right, rgba(6,35,24,0.88) 0%, rgba(6,35,24,0.45) 50%, rgba(6,35,24,0.15) 100%)",
+            }}
+          />
+
+          {/* Gradiente inferior suave para conectar com a seção seguinte */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-emerald-950 via-emerald-950/40 to-transparent pointer-events-none z-10"
+            style={{ opacity: Math.min(1, overlayOpacity * 1.5) }}
+          />
         </div>
 
         {/* Content Box */}
@@ -369,14 +408,14 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.4 }}
               >
-                <h1 className="font-display text-3xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-white tracking-tight drop-shadow-lg">
+                <h1 className="font-display text-3xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
                   {currentSlide.titleLight}{" "}
                   <span className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-emerald-200 to-amber-100 italic">
                     {currentSlide.titleBold}
                   </span>
                 </h1>
 
-                <p className="mt-4 sm:mt-6 text-sm sm:text-xl text-white/85 leading-relaxed font-light max-w-2xl drop-shadow line-clamp-3 sm:line-clamp-none">
+                <p className="mt-4 sm:mt-6 text-sm sm:text-xl text-white/95 leading-relaxed font-light max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] line-clamp-3 sm:line-clamp-none">
                   {currentSlide.description}
                 </p>
               </motion.div>

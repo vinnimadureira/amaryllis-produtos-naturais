@@ -1,38 +1,25 @@
-import { useState, useEffect, useRef } from "react";
-import { Save, Loader2, Film, Upload, Trash2, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Save, Loader2, Film, Sun, Sliders, Eye, Sparkles } from "lucide-react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import heroVideoAsset from "@/assets/hero-pizza-cone-v3.mp4.asset.json";
 
-const KEYS = ["hero_video_url", "hero_video_brightness"] as const;
-const DEFAULT_BRIGHTNESS = 0.58;
-const MIN_BRIGHTNESS = 0;
-const MAX_BRIGHTNESS = 1;
+const KEYS = ["hero_overlay_opacity", "hero_video_brightness", "hero_overlay_theme"] as const;
 
-const clampBrightness = (value: number) => Math.min(MAX_BRIGHTNESS, Math.max(MIN_BRIGHTNESS, value));
-const brightnessToPercent = (value: number) => Math.round(value * 100);
-const getOverlayOpacity = (value: number) => {
-  const darkness = 1 - clampBrightness(value);
-  return {
-    solid: darkness * 0.24,
-    side: darkness * 0.72,
-    bottom: darkness * 0.5,
-    radial: darkness * 0.82,
-  };
-};
+const DEFAULT_OVERLAY_OPACITY = 0.30; // 30% padrão (suave e permite ver o vídeo com total clareza)
+const DEFAULT_VIDEO_BRIGHTNESS = 1.00; // 100% brilho natural
+const DEFAULT_THEME = "botanico"; // verde botânico suave
 
 const HeroVideoSettings = () => {
   const { toast } = useToast();
   const qc = useQueryClient();
-  const fileRef = useRef<HTMLInputElement>(null);
   const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [videoUrl, setVideoUrl] = useState("");
-  const [brightness, setBrightness] = useState(DEFAULT_BRIGHTNESS);
+
+  const [overlayOpacity, setOverlayOpacity] = useState(DEFAULT_OVERLAY_OPACITY);
+  const [videoBrightness, setVideoBrightness] = useState(DEFAULT_VIDEO_BRIGHTNESS);
+  const [theme, setTheme] = useState(DEFAULT_THEME);
 
   const { data: settings = [], isLoading } = useQuery({
     queryKey: ["hero-video-settings"],
@@ -47,17 +34,18 @@ const HeroVideoSettings = () => {
   });
 
   useEffect(() => {
-    const url = settings.find((s: any) => s.key === "hero_video_url")?.value || "";
-    const b = parseFloat(settings.find((s: any) => s.key === "hero_video_brightness")?.value || String(DEFAULT_BRIGHTNESS));
-    setVideoUrl(url);
-    setBrightness(isFinite(b) ? clampBrightness(b) : DEFAULT_BRIGHTNESS);
+    if (!settings || settings.length === 0) return;
+
+    const op = settings.find((s: any) => s.key === "hero_overlay_opacity")?.value;
+    const br = settings.find((s: any) => s.key === "hero_video_brightness")?.value;
+    const th = settings.find((s: any) => s.key === "hero_overlay_theme")?.value;
+
+    if (op !== undefined && op !== null) setOverlayOpacity(parseFloat(op));
+    if (br !== undefined && br !== null) setVideoBrightness(parseFloat(br));
+    if (th) setTheme(th);
   }, [settings]);
 
-  const currentVideoUrl = videoUrl || heroVideoAsset.url;
-  const isUsingDefaultVideo = !videoUrl;
-  const overlayOpacity = getOverlayOpacity(brightness);
-
-  async function persist(key: string, value: string | null) {
+  async function persist(key: string, value: string) {
     const existing = settings.find((s: any) => s.key === key);
     if (existing) {
       return supabase.from("site_settings").update({ value }).eq("id", existing.id);
@@ -68,68 +56,24 @@ const HeroVideoSettings = () => {
   async function handleSave() {
     setSaving(true);
     try {
-      const r1 = await persist("hero_video_url", videoUrl || null);
-      const r2 = await persist("hero_video_brightness", String(Number(clampBrightness(brightness).toFixed(2))));
+      const r1 = await persist("hero_overlay_opacity", overlayOpacity.toFixed(2));
+      const r2 = await persist("hero_video_brightness", videoBrightness.toFixed(2));
+      const r3 = await persist("hero_overlay_theme", theme);
+
       if (r1.error) throw r1.error;
       if (r2.error) throw r2.error;
-      toast({ title: "Configurações salvas!" });
+      if (r3.error) throw r3.error;
+
+      toast({
+        title: "Aparência do Hero atualizada!",
+        description: `Escurecimento em ${(overlayOpacity * 100).toFixed(0)}% e brilho em ${(videoBrightness * 100).toFixed(0)}%.`,
+      });
       qc.invalidateQueries({ queryKey: ["hero-video-settings"] });
       qc.invalidateQueries({ queryKey: ["hero-video-public"] });
     } catch (err: any) {
       toast({ title: "Erro ao salvar", description: err.message, variant: "destructive" });
     } finally {
       setSaving(false);
-    }
-  }
-
-  async function handleUpload(file: File) {
-    if (!file) return;
-    if (!file.type.startsWith("video/")) {
-      toast({ title: "Selecione um arquivo de vídeo", variant: "destructive" });
-      return;
-    }
-    setUploading(true);
-    try {
-      const ext = file.name.split(".").pop() || "mp4";
-      const path = `hero/hero-${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage
-        .from("site-media")
-        .upload(path, file, { cacheControl: "3600", upsert: false, contentType: file.type });
-      if (upErr) throw upErr;
-      const { data } = supabase.storage.from("site-media").getPublicUrl(path);
-      setVideoUrl(data.publicUrl);
-      // Save immediately
-      const r = await persist("hero_video_url", data.publicUrl);
-      if (r.error) throw r.error;
-      toast({ title: "Vídeo enviado e salvo!" });
-      qc.invalidateQueries({ queryKey: ["hero-video-settings"] });
-      qc.invalidateQueries({ queryKey: ["hero-video-public"] });
-    } catch (err: any) {
-      toast({ title: "Erro no upload", description: err.message, variant: "destructive" });
-    } finally {
-      setUploading(false);
-      if (fileRef.current) fileRef.current.value = "";
-    }
-  }
-
-  async function handleDelete() {
-    if (!confirm("Remover o vídeo do hero? O site voltará a usar o vídeo padrão.")) return;
-    try {
-      // Try to delete file from bucket if it's a site-media URL
-      const marker = "/storage/v1/object/public/site-media/";
-      const idx = videoUrl.indexOf(marker);
-      if (idx >= 0) {
-        const path = videoUrl.substring(idx + marker.length);
-        await supabase.storage.from("site-media").remove([path]);
-      }
-      const r = await persist("hero_video_url", null);
-      if (r.error) throw r.error;
-      setVideoUrl("");
-      toast({ title: "Vídeo removido" });
-      qc.invalidateQueries({ queryKey: ["hero-video-settings"] });
-      qc.invalidateQueries({ queryKey: ["hero-video-public"] });
-    } catch (err: any) {
-      toast({ title: "Erro ao remover", description: err.message, variant: "destructive" });
     }
   }
 
@@ -142,121 +86,180 @@ const HeroVideoSettings = () => {
   }
 
   return (
-    <div>
+    <div className="max-w-4xl">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
             <Film className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <h2 className="font-serif text-base font-semibold text-foreground">Vídeo do Hero</h2>
-            <p className="text-xs text-muted-foreground">Vídeo de fundo da página inicial e seu brilho</p>
+            <h2 className="font-serif text-lg font-semibold text-foreground">
+              Intensidade & Fundo do Vídeo (Hero)
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              Controle a transparência do fundo verde, brilho e contraste para deixar o vídeo mais visível ou mais escuro
+            </p>
           </div>
         </div>
         <Button onClick={handleSave} disabled={saving} size="sm" className="gap-1.5">
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          Salvar
+          Salvar Alterações
         </Button>
       </div>
 
-      {/* Preview */}
-      <div className="mb-6 rounded-lg overflow-hidden border border-border bg-brand-deep aspect-video relative">
+      {/* Prévia ao Vivo em Tempo Real */}
+      <div className="mb-8 rounded-2xl overflow-hidden border border-border bg-emerald-950 aspect-video relative shadow-lg">
         <video
-          key={currentVideoUrl}
-          src={currentVideoUrl}
+          src="/media/amaryllis-hero-tea.mp4"
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
           className="w-full h-full object-cover"
-          style={{ filter: `brightness(${brightness}) contrast(1.05) saturate(0.92)` }}
+          style={{ filter: `brightness(${videoBrightness}) contrast(1.06) saturate(1.1)` }}
         />
-        <div className="absolute inset-0 bg-brand-deep pointer-events-none" style={{ opacity: overlayOpacity.solid }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-deep via-brand-deep/80 to-transparent pointer-events-none" style={{ opacity: overlayOpacity.side }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/20 to-transparent pointer-events-none" style={{ opacity: overlayOpacity.bottom }} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_48%_58%_at_27%_55%,hsl(var(--brand-deep)/0.86),hsl(var(--brand-deep)/0.52)_48%,transparent_72%)] pointer-events-none" style={{ opacity: overlayOpacity.radial }} />
-        <div className="absolute left-3 top-3 rounded-md bg-background/80 px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm">
-          {isUsingDefaultVideo ? "Vídeo padrão do site" : "Vídeo personalizado"} · brilho atual {(brightness * 100).toFixed(0)}%
-        </div>
-      </div>
 
-      {/* Brightness */}
-      <div className="mb-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
-          <label className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            <Sun className="w-3.5 h-3.5" />Brilho do vídeo
-          </label>
-          <div className="flex items-center gap-2">
-            <Input
-              type="number"
-              min={brightnessToPercent(MIN_BRIGHTNESS)}
-              max={brightnessToPercent(MAX_BRIGHTNESS)}
-              step={1}
-              value={brightnessToPercent(brightness)}
-              onChange={(e) => setBrightness(clampBrightness(Number(e.target.value || brightnessToPercent(DEFAULT_BRIGHTNESS)) / 100))}
-              className="h-8 w-20 text-right"
-            />
-            <span className="text-xs text-muted-foreground">%</span>
+        {/* Camada de Gradiente em Tempo Real com a Opacidade do Slider */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-200"
+          style={{
+            opacity: overlayOpacity,
+            background:
+              theme === "cinematic"
+                ? "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.15) 100%)"
+                : theme === "minimal"
+                ? "radial-gradient(ellipse 65% 80% at 25% 50%, rgba(0,0,0,0.65), transparent 75%)"
+                : "linear-gradient(to right, rgba(6,35,24,0.88) 0%, rgba(6,35,24,0.45) 50%, rgba(6,35,24,0.15) 100%)",
+          }}
+        />
+
+        {/* Texto Simulado na Prévia */}
+        <div className="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none z-20">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-semibold uppercase tracking-wider self-start">
+            <Sparkles className="w-3 h-3 text-amber-300" /> Prévia em Tempo Real
+          </div>
+
+          <div className="max-w-lg">
+            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-white leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              Fitoterápicos Puros &{" "}
+              <span className="italic text-amber-200">Chás Medicinais.</span>
+            </h3>
+            <p className="text-xs sm:text-sm text-white/90 mt-2 font-light drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+              Sabedoria botânica respaldada pela ciência: própolis verde, extratos padronizados e infusões aromáticas.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-between text-[11px] text-white/80 bg-black/50 backdrop-blur-md p-2 rounded-lg">
+            <span>Escurecimento: <strong>{(overlayOpacity * 100).toFixed(0)}%</strong></span>
+            <span>Brilho do Vídeo: <strong>{(videoBrightness * 100).toFixed(0)}%</strong></span>
+            <span>Estilo: <strong>{theme}</strong></span>
           </div>
         </div>
-        <Slider
-          value={[brightness]}
-          onValueChange={(v) => setBrightness(clampBrightness(v[0]))}
-          min={MIN_BRIGHTNESS}
-          max={MAX_BRIGHTNESS}
-          step={0.01}
-        />
-        <p className="text-[11px] text-muted-foreground mt-1">
-          A prévia acima simula o mesmo escurecimento do site. Use 100% para brilho máximo/natural ou ajuste de 1 em 1%.
-        </p>
       </div>
 
-      {/* Upload / URL */}
-      <div className="space-y-3">
-        <label className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-          URL do vídeo
-        </label>
-        <Input
-          value={videoUrl}
-          onChange={(e) => setVideoUrl(e.target.value)}
-          placeholder="Usando o vídeo padrão do site — envie um arquivo abaixo ou cole uma URL"
-        />
-        <div className="flex flex-wrap gap-2">
-          <input
-            ref={fileRef}
-            type="file"
-            accept="video/*"
-            className="hidden"
-            onChange={(e) => e.target.files && handleUpload(e.target.files[0])}
+      {/* Controles de Sliders */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-card border border-border shadow-soft">
+        {/* Controle 1: Intensidade do Fundo / Escurecimento */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <label className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-foreground">
+              <Sliders className="w-4 h-4 text-primary" />
+              Escurecimento do Fundo
+            </label>
+            <span className="font-mono text-sm font-bold text-primary">
+              {(overlayOpacity * 100).toFixed(0)}%
+            </span>
+          </div>
+
+          <Slider
+            value={[overlayOpacity]}
+            onValueChange={(v) => setOverlayOpacity(v[0])}
+            min={0}
+            max={0.9}
+            step={0.02}
           />
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={() => fileRef.current?.click()}
-            disabled={uploading}
-            className="gap-1.5"
-          >
-            {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
-            Enviar novo vídeo
-          </Button>
-          {videoUrl && (
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={handleDelete}
-              className="gap-1.5 text-destructive hover:text-destructive"
-            >
-              <Trash2 className="w-4 h-4" />
-              Excluir vídeo
-            </Button>
-          )}
+
+          <div className="flex justify-between text-[11px] text-muted-foreground">
+            <span>0% (Vídeo Puro)</span>
+            <span className="text-primary font-medium">30% (Recomendado)</span>
+            <span>90% (Mais Escuro)</span>
+          </div>
+
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Diminua este valor para deixar o vídeo de fundo <strong>mais visível, claro e nítido</strong>. Em 30%, o vídeo aparece perfeitamente e o texto continua fácil de ler.
+          </p>
         </div>
-        <p className="text-[11px] text-muted-foreground">
-          Recomendado: MP4 (H.264), até ~20 MB, 1920×1080, sem áudio.
-        </p>
+
+        {/* Controle 2: Brilho do Vídeo */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <label className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-foreground">
+              <Sun className="w-4 h-4 text-amber-500" />
+              Brilho Natural do Vídeo
+            </label>
+            <span className="font-mono text-sm font-bold text-amber-600">
+              {(videoBrightness * 100).toFixed(0)}%
+            </span>
+          </div>
+
+          <Slider
+            value={[videoBrightness]}
+            onValueChange={(v) => setVideoBrightness(v[0])}
+            min={0.6}
+            max={1.4}
+            step={0.02}
+          />
+
+          <div className="flex justify-between text-[11px] text-muted-foreground">
+            <span>60% (Suave)</span>
+            <span className="text-amber-600 font-medium">100% (Natural)</span>
+            <span>140% (Vívido)</span>
+          </div>
+
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Ajusta o ganho de iluminação da gravação do vídeo. 100% preserva as cores naturais da câmera.
+          </p>
+        </div>
+      </div>
+
+      {/* Seletor de Estilo do Fundo */}
+      <div className="mt-6 p-6 rounded-2xl bg-card border border-border shadow-soft">
+        <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
+          Tom da Atmosfera de Fundo
+        </label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            {
+              id: "botanico",
+              title: "Verde Botânico Suave",
+              desc: "Gradiente esmeralda sutil, alinhado à identidade Amaryllis.",
+            },
+            {
+              id: "cinematic",
+              title: "Preto Fumê / Cinema",
+              desc: "Tons neutros escuros sem matiz esverdeado.",
+            },
+            {
+              id: "minimal",
+              title: "Minimalista",
+              desc: "Apenas sombra sob os textos, com o vídeo quase 100% descoberto.",
+            },
+          ].map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTheme(t.id)}
+              className={`p-4 rounded-xl text-left border transition-all ${
+                theme === t.id
+                  ? "border-primary bg-primary/10 shadow-sm"
+                  : "border-border hover:border-primary/40 bg-background"
+              }`}
+            >
+              <p className="font-medium text-sm text-foreground">{t.title}</p>
+              <p className="text-xs text-muted-foreground mt-1 leading-snug">{t.desc}</p>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -91,7 +91,7 @@ const settingsGroup: NavGroup = {
       label: "Website",
       icon: Globe,
       items: [
-        { id: "hero-video", label: "Vídeo do Hero", icon: Film },
+        { id: "hero-video", label: "Fundo & Vídeo Hero", icon: Film },
         { id: "produtos", label: "Produtos", icon: Package },
         { id: "categorias", label: "Categorias", icon: FolderOpen },
         { id: "depoimentos", label: "Depoimentos", icon: MessageSquareQuote },
