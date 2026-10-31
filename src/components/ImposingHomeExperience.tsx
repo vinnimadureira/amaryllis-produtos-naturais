@@ -392,11 +392,6 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="truncate max-w-[240px] sm:max-w-none">{currentSlide.badge}</span>
             </div>
-
-            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white/90 text-xs font-medium">
-              <MapPin className="w-3 h-3 text-accent" />
-              <span>Loja no Guanabara · Aberta hoje até 18h</span>
-            </div>
           </motion.div>
 
           <div className="mt-5 sm:mt-8 max-w-3xl">
@@ -420,37 +415,6 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
                 </p>
               </motion.div>
             </AnimatePresence>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="mt-6 sm:mt-8 flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-5 sm:py-6 rounded-full shadow-2xl text-sm sm:text-base group text-center"
-              >
-                <Link to={currentSlide.ctaLink}>
-                  <span>{currentSlide.ctaText}</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform inline" />
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full px-5 sm:px-7 py-5 sm:py-6 text-sm sm:text-base bg-white/10 hover:bg-white/20 text-white border-white/25 backdrop-blur-md transition-all text-center"
-              >
-                <a href={waUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="w-4 h-4 mr-2 text-emerald-400 inline" />
-                  Pedir no WhatsApp
-                </a>
-              </Button>
-            </motion.div>
           </div>
         </div>
 
@@ -882,7 +846,7 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
               Nossa loja física no Jardim Guanabara elimina as incertezas sobre rótulos e restrições: oferecemos suplementação pura e alimentos verdadeiros com suporte consultivo de quem entende.
             </p>
 
-            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-white/15">
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-8 pt-6 border-t border-white/15 max-w-md">
               <div>
                 <h4 className="font-display text-lg sm:text-2xl font-bold text-amber-200">100%</h4>
                 <p className="text-[10px] sm:text-xs text-white/70 mt-0.5">Conferência de rótulos</p>
@@ -890,10 +854,6 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
               <div>
                 <h4 className="font-display text-lg sm:text-2xl font-bold text-emerald-300">Pronta-Entrega</h4>
                 <p className="text-[10px] sm:text-xs text-white/70 mt-0.5">Linha Essential e Granel</p>
-              </div>
-              <div>
-                <h4 className="font-display text-lg sm:text-2xl font-bold text-amber-200">Campinas</h4>
-                <p className="text-[10px] sm:text-xs text-white/70 mt-0.5">Rua Camargo Paes, 65</p>
               </div>
             </div>
           </div>

@@ -90,7 +90,7 @@ const Contato = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-xs font-medium text-primary mb-5">
               <Sparkles className="w-3.5 h-3.5" />
-              Jardim Guanabara · Campinas - SP · Atendimento Especializado
+              Atendimento Especializado
             </div>
             <h1 className="font-display text-4xl md:text-6xl text-foreground tracking-tight leading-[1.06] mb-5">
               Fale com a Amaryllis.

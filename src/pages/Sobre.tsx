@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf, ShieldCheck, Sparkles, Store, HeartHandshake, Award } from "lucide-react";
+import { Leaf, ShieldCheck, Award } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import { breadcrumbJsonLd, localBusinessJsonLd } from "@/components/JsonLd";
@@ -25,11 +25,6 @@ const values = [
     title: "Fitoterápicos, Orgânicos & Granel",
     desc: "Chás medicinais, grãos integrais, castanhas selecionadas, farinhas especiais e dietéticos.",
   },
-  {
-    icon: HeartHandshake,
-    title: "Tradição no Jardim Guanabara",
-    desc: "Atendimento próximo, humano e especializado na Rua Camargo Paes, 65 em Campinas.",
-  },
 ];
 
 const Sobre = () => {
@@ -46,7 +41,7 @@ const Sobre = () => {
       <div className="container">
         <Breadcrumbs items={[{ label: "Sobre a Loja" }]} />
         <SectionTitle
-          title="Tradição em saúde e bem-estar em Campinas"
+          title="Tradição em saúde e bem-estar"
           subtitle="Amaryllis Produtos Naturais, Dietéticos e Fitoterápicos"
         />
 
@@ -101,7 +96,7 @@ const Sobre = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((v, i) => (
             <motion.div
               key={i}
