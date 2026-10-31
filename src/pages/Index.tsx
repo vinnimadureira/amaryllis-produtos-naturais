@@ -203,11 +203,6 @@ const Index = () => {
           <h2 className="font-display text-3xl sm:text-5xl leading-[1.08] text-white">
             Sua saúde começa com escolhas verdadeiras.
           </h2>
-          <p className="mt-5 text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
-            📍 <strong>Rua Camargo Paes, 65 — Jardim Guanabara, Campinas - SP</strong>
-            <br />
-            📞 (19) 3243-5982 · 💬 WhatsApp: (19) 99351-2766
-          </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Button
               asChild
