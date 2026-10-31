@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf, ShieldCheck, Award } from "lucide-react";
+import { Leaf, ShieldCheck, Award, Sparkles } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import { breadcrumbJsonLd, localBusinessJsonLd } from "@/components/JsonLd";
