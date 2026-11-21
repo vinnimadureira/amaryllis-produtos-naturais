@@ -560,11 +560,10 @@ export const ScrollInteractiveShowcase: React.FC = () => {
                     key={chap.id}
                     type="button"
                     onClick={() => scrollToChapter(idx)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${
-                      isActive
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${isActive
                         ? "bg-primary text-primary-foreground shadow-sm scale-105"
                         : "bg-card/80 text-muted-foreground hover:text-foreground border border-border/70"
-                    }`}
+                      }`}
                   >
                     <span className="font-mono opacity-75">{chap.number}</span>
                     <span className="hidden sm:inline">{chap.title.replace("&", "")}</span>
