@@ -15,6 +15,7 @@ import {
   HeartHandshake,
   HelpCircle,
 } from "lucide-react";
+import { stripHtml, hasHtmlTags } from "@/lib/htmlUtils";
 
 interface ProductDetailsProps {
   name: string;
@@ -141,9 +142,16 @@ const ProductDetails = ({ name, category, description, weightGrams = 300 }: Prod
                 ))}
               </dl>
               {description && (
-                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                  {description}
-                </p>
+                hasHtmlTags(description) ? (
+                  <div 
+                    className="text-xs text-muted-foreground mt-4 leading-relaxed [&>h3]:hidden [&>h4]:font-semibold [&>h4]:text-foreground [&>h4]:mt-2.5 [&>h4]:mb-1 [&>ul]:list-disc [&>ul]:pl-4 [&>ul]:space-y-1 [&>p]:mb-2 [&>strong]:text-foreground"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+                ) : (
+                  <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                    {description}
+                  </p>
+                )
               )}
             </div>
           </div>

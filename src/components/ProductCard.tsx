@@ -7,6 +7,7 @@ import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast";
 import { useConfetti } from "@/hooks/useConfetti";
 import { AMARYLLIS_COMPANY } from "@/lib/amaryllisFallbackData";
+import { stripHtml } from "@/lib/htmlUtils";
 
 interface ProductCardProps {
   id: string;
@@ -239,7 +240,7 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(({
               {name}
             </h3>
           </Link>
-          <p className="hidden sm:block text-xs text-muted-foreground mt-1 line-clamp-2">{description}</p>
+          <p className="hidden sm:block text-xs text-muted-foreground mt-1 line-clamp-2">{stripHtml(description)}</p>
         </div>
 
         <div className="flex items-center justify-between gap-1.5 sm:gap-3 mt-2 sm:mt-4 pt-1.5 sm:pt-2 border-t border-border/40">

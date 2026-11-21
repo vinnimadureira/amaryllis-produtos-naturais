@@ -16,6 +16,7 @@ import SocialShare from "@/components/SocialShare";
 import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast";
 import { AMARYLLIS_COMPANY, AMARYLLIS_PRODUCTS } from "@/lib/amaryllisFallbackData";
+import { stripHtml, hasHtmlTags } from "@/lib/htmlUtils";
 
 const WHATSAPP_URL = `https://wa.me/${AMARYLLIS_COMPANY.whatsapp}?text=`;
 
@@ -131,13 +132,13 @@ const Produto = () => {
     <main className="pt-24 pb-20">
       <SEO
         title={product.name}
-        description={`${product.description.slice(0, 120)} — ${product.price}. Amaryllis Produtos Naturais em Campinas (Jardim Guanabara).`}
+        description={`${stripHtml(product.description).slice(0, 150)} — ${product.price}. Amaryllis Produtos Naturais.`}
         image={product.image !== "/placeholder.svg" ? product.image : undefined}
         type="product"
-        keywords={`${product.name}, amaryllis produtos naturais, ${product.category}, campinas, jardim guanabara`}
+        keywords={`${product.name}, amaryllis produtos naturais, ${product.category}`}
         jsonLd={productJsonLd({
           name: product.name,
-          description: product.description,
+          description: stripHtml(product.description),
           price: product.price,
           image: product.image,
           id: id || "",
@@ -185,8 +186,12 @@ const Produto = () => {
 
             <p className="font-serif text-3xl font-bold text-primary mb-6">{product.price}</p>
 
-            <div className="prose prose-sm text-muted-foreground mb-8 leading-relaxed">
-              <p>{product.description}</p>
+            <div className="prose prose-sm max-w-none text-muted-foreground mb-8 leading-relaxed [&>h3]:font-serif [&>h3]:text-foreground [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mb-3 [&>h3]:mt-0 [&>h4]:text-foreground [&>h4]:font-semibold [&>h4]:text-sm [&>h4]:mt-5 [&>h4]:mb-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>p]:mb-3 [&>strong]:text-foreground [&>ul>li>strong]:text-foreground">
+              {hasHtmlTags(product.description) ? (
+                <div dangerouslySetInnerHTML={{ __html: product.description }} />
+              ) : (
+                <p>{product.description}</p>
+              )}
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-8">

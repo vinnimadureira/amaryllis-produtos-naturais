@@ -1,3 +1,5 @@
+import { stripHtml } from "@/lib/htmlUtils";
+
 /**
  * Structured data builders for Amaryllis Produtos Naturais (Campinas - SP).
  */
@@ -67,7 +69,7 @@ export function productJsonLd(product: {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.description,
+    description: stripHtml(product.description),
     image: product.image,
     url: `/produto/${product.id}`,
     brand: { "@type": "Brand", name: SITE_NAME },
