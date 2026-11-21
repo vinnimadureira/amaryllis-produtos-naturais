@@ -52,7 +52,7 @@ const FAQS = [
 
 const TRUST_ITEMS = [
   { icon: ShieldCheck, label: "Gluten Free Friendly", sub: "Opções sem glúten e sem lactose" },
-  { icon: Truck, label: "Loja & Delivery", sub: "Jardim Guanabara · Campinas - SP" },
+  { icon: Truck, label: "Loja & Delivery", sub: "Pronta-Entrega & Envio Rápido" },
 ];
 
 const Contato = () => {

@@ -279,11 +279,11 @@ const STORY_CHAPTERS: StoryChapter[] = [
   {
     id: "essential",
     number: "01",
-    badge: "Parceira Oficial em Campinas",
+    badge: "Parceira Oficial Essential Nutrition",
     title: "Nutrição Funcional &",
     highlight: "Suplementação Pura",
     description:
-      "Toda a linha Essential Nutrition à pronta-entrega no Jardim Guanabara. Proteínas isoladas e hidrolisadas, peptídeos de colágeno Verisol®, creatina de altíssima pureza e adoçantes 100% naturais.",
+      "Toda a linha Essential Nutrition à pronta-entrega. Proteínas isoladas e hidrolisadas, peptídeos de colágeno Verisol®, creatina de altíssima pureza e adoçantes 100% naturais.",
     video: "/media/amaryllis-hero-functional.mp4",
     image:
       "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=85",
@@ -305,7 +305,7 @@ const STORY_CHAPTERS: StoryChapter[] = [
     floatingCardBottom: {
       label: "Destaque na Loja",
       value: "Linha Completa Essential",
-      sub: "Pronta-entrega na Rua Camargo Paes, 65",
+      sub: "Pronta-entrega e atendimento especializado",
     },
     ctaLabel: "Explorar Essential Nutrition",
     ctaLink: "/catalogo?ingrediente=Essential",
@@ -317,7 +317,7 @@ const STORY_CHAPTERS: StoryChapter[] = [
     title: "Liberdade e Sabor",
     highlight: "Sem Glúten & Sem Lactose",
     description:
-      "Reconhecida pelo guia Guindy em Campinas, nossa curadoria oferece pães artesanais multigrãos, massas, farinhas nobres, bebidas vegetais e snacks seguros para celíacos e intolerantes.",
+      "Reconhecida pelo guia Guindy, nossa curadoria oferece pães artesanais multigrãos, massas, farinhas nobres, bebidas vegetais e snacks seguros para celíacos e intolerantes.",
     video: "/media/amaryllis-hero-glutenfree.mp4",
     image:
       "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85",
@@ -381,11 +381,11 @@ const STORY_CHAPTERS: StoryChapter[] = [
   {
     id: "guanabara",
     number: "04",
-    badge: "Tradição no Jardim Guanabara",
+    badge: "Tradição & Confiança",
     title: "Atendimento que acolhe",
     highlight: "na Loja ou no WhatsApp",
     description:
-      "Envie a lista da sua nutricionista pelo WhatsApp (19) 99351-2766: separamos tudo com carinho para entrega rápida em Campinas ou retirada expressa na Rua Camargo Paes, 65.",
+      "Envie a lista da sua nutricionista pelo WhatsApp (19) 99351-2766: separamos tudo com carinho para entrega rápida ou retirada expressa.",
     video: "/media/amaryllis-hero-tea.mp4",
     image:
       "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85",
@@ -393,16 +393,16 @@ const STORY_CHAPTERS: StoryChapter[] = [
       "https://images.unsplash.com/photo-1490885578174-acda8905c2c6?auto=format&fit=crop&w=600&q=80",
     accentClass: "from-primary/35 via-[hsl(var(--brand-brasa))]/25 to-transparent",
     pills: [
-      "Rua Camargo Paes, 65",
+      "Atendimento Humanizado",
       "WhatsApp (19) 99351-2766",
       "Fixo (19) 3243-5982",
-      "Delivery em Campinas",
+      "Delivery Express",
     ],
-    orbitTags: ["CEP 13073-350", "Delivery Rápido"],
+    orbitTags: ["Atendimento Especializado", "Delivery Rápido"],
     floatingCardTop: {
-      label: "Jardim Guanabara · Campinas",
-      value: "Rua Camargo Paes, 65",
-      sub: "Estacionamento fácil e retirada rápida",
+      label: "Amaryllis Produtos Naturais",
+      value: "Atendimento Consultivo",
+      sub: "Retirada rápida e pronta-entrega",
     },
     floatingCardBottom: {
       label: "Lista da Nutricionista",

@@ -180,7 +180,7 @@ const Produto = () => {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 text-accent fill-accent" />
               ))}
-              <span className="text-sm text-muted-foreground ml-2">Curadoria Amaryllis · Campinas</span>
+              <span className="text-sm text-muted-foreground ml-2">Curadoria Especializada Amaryllis</span>
             </div>
 
             <p className="font-serif text-3xl font-bold text-primary mb-6">{product.price}</p>
@@ -194,7 +194,7 @@ const Produto = () => {
                 { icon: ShieldCheck, text: "Procedência Garantida" },
                 { icon: Leaf, text: "Nutrição Limpa & Saudável" },
                 { icon: Award, text: "Curadoria Especializada" },
-                { icon: Sparkles, text: "Loja Física no Guanabara" },
+                { icon: Sparkles, text: "Garantia de Procedência" },
               ].map((feat, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary/60 border border-border/60 rounded-lg px-3 py-2.5">
                   <feat.icon className="w-4 h-4 text-primary shrink-0" />
@@ -258,7 +258,7 @@ const Produto = () => {
             <div className="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border">
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <Leaf className="w-3.5 h-3.5 text-primary" />
-                Rua Camargo Paes, 65 · Jardim Guanabara
+                Pronta-Entrega & Atendimento Consultivo
               </div>
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />

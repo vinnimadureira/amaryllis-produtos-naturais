@@ -13,7 +13,7 @@ const values = [
   {
     icon: Award,
     title: "Parceira Essential Nutrition",
-    desc: "Linha oficial completa de proteínas, colágenos, aminoácidos e chocolates funcionais em Campinas.",
+    desc: "Linha oficial completa de proteínas, colágenos, aminoácidos e chocolates funcionais.",
   },
   {
     icon: ShieldCheck,
@@ -84,7 +84,7 @@ const Sobre = () => {
             <p className="text-muted-foreground leading-relaxed">
               A{" "}
               <strong className="text-foreground">Amaryllis Produtos Naturais e Dietéticos e Fitoterápicos</strong>{" "}
-              construiu sua história em Campinas unindo curadoria rigorosa de produtos saudáveis e um atendimento acolhedor, próximo e prestativo.
+              construiu sua história unindo curadoria rigorosa de produtos saudáveis e um atendimento acolhedor, próximo e prestativo.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Somos <strong className="text-foreground">Parceira Oficial da Essential Nutrition</strong>, oferecendo a linha completa de proteínas isoladas e hidrolisadas, colágenos, aminoácidos, creatina e chocolates funcionais. Também trabalhamos com marcas consagradas de nutrição clínica e esportiva, além de fitoterápicos, chás medicinais, mel orgânico, própolis e produtos a granel sempre frescos.

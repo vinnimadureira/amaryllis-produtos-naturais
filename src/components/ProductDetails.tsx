@@ -131,7 +131,7 @@ const ProductDetails = ({ name, category, description, weightGrams = 300 }: Prod
                 {[
                   ["Categoria", category || "Produtos Naturais"],
                   ["Perfil", "Nutrição Saudável & Funcional"],
-                  ["Disponibilidade", "Loja Física (Guanabara) & Delivery"],
+                  ["Disponibilidade", "Pronta-Entrega & Delivery"],
                   ["Atendimento", "WhatsApp (19) 99351-2766"],
                 ].map(([label, val]) => (
                   <div key={label} className="flex justify-between py-2.5">

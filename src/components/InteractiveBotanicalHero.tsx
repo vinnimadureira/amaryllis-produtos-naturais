@@ -500,7 +500,7 @@ export const InteractiveBotanicalHero: React.FC<InteractiveBotanicalHeroProps> =
                   </p>
                   <p className="text-xs text-white/75 mt-1 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
-                    <span>Rua Camargo Paes, 65 · Jardim Guanabara</span>
+                    <span>Atendimento Consultivo & Pronta-Entrega</span>
                   </p>
                 </div>
                 <Link
