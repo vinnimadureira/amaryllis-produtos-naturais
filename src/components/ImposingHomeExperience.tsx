@@ -19,7 +19,10 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AMARYLLIS_COMPANY } from "@/lib/amaryllisFallbackData";
+import { AMARYLLIS_COMPANY, AMARYLLIS_PRODUCTS } from "@/lib/amaryllisFallbackData";
+import { extractSummary } from "@/lib/htmlUtils";
+
+const PRODUCT_BY_ID = new Map(AMARYLLIS_PRODUCTS.map((p) => [p.id, p]));
 
 /* ──────────────────────────────────────────────────────────────────────────
  * 1. HERO SLIDES DATA (4 Capítulos Cinemáticos com Vídeos HD Locais)
@@ -115,14 +118,7 @@ interface HealthGoal {
   recommendedTag: string;
   buttonLabel: string;
   buttonLink: string;
-  products: {
-    name: string;
-    badge: string;
-    price: string;
-    image: string;
-    desc: string;
-    waText: string;
-  }[];
+  productIds: string[];
 }
 
 const HEALTH_GOALS: HealthGoal[] = [
@@ -134,34 +130,13 @@ const HEALTH_GOALS: HealthGoal[] = [
     subtitle: "Proteínas puras, colágeno bioativo e creatina sem aditivos",
     description:
       "Ideal para quem treina e busca hipertrofia limpa, recuperação rápida e saúde articular sem abrir mão da pureza biológica.",
-    recommendedTag: "Linha Essential Nutrition",
+    recommendedTag: "Linha Essential & Vitafor",
     buttonLabel: "Ver suplementos",
-    buttonLink: "/catalogo?ingrediente=Essential",
-    products: [
-      {
-        name: "Cacao Whey Essential Nutrition (300g)",
-        badge: "Parceira Oficial",
-        price: "R$ 169,00",
-        image: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80",
-        desc: "Whey hidrolisado e isolado com cacau puro e peptídeos de colágeno. Zero açúcar e sem glúten.",
-        waText: "Olá! Gostaria de reservar o Cacao Whey Essential Nutrition na loja.",
-      },
-      {
-        name: "Collagen Skin com Ácido Hialurônico (330g)",
-        badge: "Verisol® Original",
-        price: "R$ 185,00",
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80",
-        desc: "Peptídeos bioativos de colágeno Verisol® com biotina, vitamina C e ácido hialurônico.",
-        waText: "Olá! Gostaria de encomendar o Collagen Skin Essential Nutrition.",
-      },
-      {
-        name: "Creatina Monohidratada 100% Pura (300g)",
-        badge: "Alta Pureza",
-        price: "R$ 119,00",
-        image: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=800&q=80",
-        desc: "Creatina micronizada pura para força explosiva, hidratação celular e recuperação muscular.",
-        waText: "Olá! Gostaria de consultar a Creatina 100% Pura na Amaryllis.",
-      },
+    buttonLink: "/catalogo?categoria=Essential+Nutrition",
+    productIds: [
+      "essential-cacao-whey-900g",
+      "essential-collagen-skin-neutro-300g",
+      "vitafor-creafort-300g",
     ],
   },
   {
@@ -171,35 +146,14 @@ const HEALTH_GOALS: HealthGoal[] = [
     shortTitle: "Sem Glúten",
     subtitle: "Segurança total para celíacos, intolerantes à lactose e dietas limpas",
     description:
-      "Destaque no guia Guindy em Campinas: alimentos selecionados que eliminam o risco de contaminação cruzada para sua rotina diária.",
+      "Destaque no guia Guindy: alimentos selecionados que eliminam o risco de contaminação cruzada para sua rotina diária.",
     recommendedTag: "Certificação Guindy",
     buttonLabel: "Ver Sem Glúten",
-    buttonLink: "/catalogo?ingrediente=Sem+Glúten",
-    products: [
-      {
-        name: "Pão Artesanal Multigrãos Sem Glúten (400g)",
-        badge: "Sem Glúten & Sem Leite",
-        price: "R$ 28,50",
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-        desc: "Massa leve e fofinha feita com farinha de arroz, linhaça dourada, chia e azeite extravirgem.",
-        waText: "Olá! Gostaria de reservar o Pão Artesanal Multigrãos Sem Glúten.",
-      },
-      {
-        name: "Chocolift Essential Nutrition 70% Cacau",
-        badge: "Zero Açúcar & Sem Glúten",
-        price: "R$ 29,90",
-        image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80",
-        desc: "Chocolate com whey protein, óleo de coco e polifenóis do cacau. Seguro para celíacos.",
-        waText: "Olá! Gostaria de comprar o Chocolift Essential na Amaryllis.",
-      },
-      {
-        name: "Bebida Vegetal de Amêndoas Pura (1L)",
-        badge: "100% Vegetal",
-        price: "R$ 22,00",
-        image: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=800&q=80",
-        desc: "Leite de amêndoas sem espessantes, sem açúcares adicionados e enriquecido com cálcio.",
-        waText: "Olá! Gostaria de consultar a Bebida Vegetal de Amêndoas.",
-      },
+    buttonLink: "/catalogo?categoria=Sem+Gl%C3%BAten+%26+Sem+Lactose",
+    productIds: [
+      "belive-pao-de-mel-zero-45g",
+      "alere-biscoito-castanha-quinoa-70g",
+      "a-tal-da-castanha-amendoa-1l",
     ],
   },
   {
@@ -207,75 +161,128 @@ const HEALTH_GOALS: HealthGoal[] = [
     icon: Leaf,
     title: "Digestão, Intestino & Desinchaço",
     shortTitle: "Digestão",
-    subtitle: "Fibras puras, probióticos naturais e infusões desintoxicantes",
+    subtitle: "Aloe vera, fibras puras e chás digestivos tradicionais",
     description:
-      "Restaure sua microbiota e elimine a retenção com nossa seleção de psyllium puro, farinhas funcionais e chás digestivos tradicionais.",
+      "Restaure sua microbiota e elimine a retenção com nossa seleção de sucos funcionais, massas de fibra konjac e chás tradicionais.",
     recommendedTag: "Giro Rápido Semanal",
     buttonLabel: "Ver Digestivos",
-    buttonLink: "/catalogo?ingrediente=Granel",
-    products: [
-      {
-        name: "Psyllium Husk Puro em Cascas (250g)",
-        badge: "Fibra Nobre",
-        price: "R$ 32,00",
-        image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=800&q=80",
-        desc: "Fibra 100% solúvel que melhora o trânsito intestinal e auxilia no controle da saciedade.",
-        waText: "Olá! Gostaria de encomendar Psyllium Husk Puro na Amaryllis.",
-      },
-      {
-        name: "Chá Botânico Digestivo com Espinheira-Santa (100g)",
-        badge: "Ervas Puras",
-        price: "R$ 24,90",
-        image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
-        desc: "Blend com espinheira-santa, camomila, hortelã e carqueja para alívio estomacal imediato.",
-        waText: "Olá! Gostaria de reservar o Chá Digestivo com Espinheira-Santa.",
-      },
-      {
-        name: "Castanha-do-Pará Média Fresca (250g)",
-        badge: "Fonte de Selênio",
-        price: "R$ 42,90",
-        image: "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=800&q=80",
-        desc: "Castanhas crocantes selecionadas safra nova, ricas em antioxidantes e gorduras nobres.",
-        waText: "Olá! Gostaria de pedir Castanha-do-Pará Fresca a granel.",
-      },
+    buttonLink: "/catalogo?categoria=Fitoter%C3%A1picos+%26+Ch%C3%A1s",
+    productIds: [
+      "forever-aloe-vera-gel-1l",
+      "greenbios-cha-espinheira-santa-20g",
+      "konjac-massa-mf-noodles-270g",
     ],
   },
   {
     id: "imunidade",
     icon: Sparkles,
-    title: "Imunidade, Própolis & Longevidade",
+    title: "Imunidade, Vitaminas & Longevidade",
     shortTitle: "Imunidade",
-    subtitle: "Defesas naturais reforçadas com fitoterapia e compostos fenólicos",
+    subtitle: "Defesas naturais reforçadas com fitoterapia e suplementação pura",
     description:
-      "Aumente a resistência do organismo com própolis verde concentrada, pólen apícola silvestre, cúrcuma pura e shots matinais funcionais.",
-    recommendedTag: "Fitoterapia Superior",
+      "Aumente a resistência do organismo com vitaminas lipossolúveis, extratos botânicos Panizza e cúrcuma nativa.",
+    recommendedTag: "Fitoterapia & Vitaminas",
     buttonLabel: "Ver Imunidade",
-    buttonLink: "/catalogo?ingrediente=Fitoterápicos",
-    products: [
-      {
-        name: "Extrato de Própolis Verde Concentrado (30ml)",
-        badge: "Alta Concentração",
-        price: "R$ 48,00",
-        image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
-        desc: "Rico em Artepellin-C, potente ação antibacteriana, anti-inflamatória e imunoestimulante.",
-        waText: "Olá! Gostaria de reservar o Extrato de Própolis Verde Concentrado.",
-      },
-      {
-        name: "Mel Silvestre Orgânico Puro (500g)",
-        badge: "100% Orgânico",
-        price: "R$ 38,00",
-        image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-        desc: "Mel cru sem pasteurização, preservando enzimas naturais, pólen e propriedades medicinais.",
-        waText: "Olá! Gostaria de encomendar o Mel Silvestre Orgânico.",
-      },
-      {
-        name: "Cúrcuma Pura com Pimenta Preta (150g)",
-        badge: "Anti-inflamatório",
-        price: "R$ 29,90",
-        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80",
-        desc: "Curcumina com piperina para máxima biodisponibilidade e combate à inflamação crônica.",
-        waText: "Olá! Gostaria de pedir a Cúrcuma Pura na Amaryllis.",
-      },
+    buttonLink: "/catalogo?categoria=Suplementos+%26+Prote%C3%ADnas",
+    productIds: [
+      "now-vitamin-d3-k2-120caps",
+      "panizza-tintura-equinacea-100ml",
+      "color-andina-curcuma-longa-100g",
+    ],
+  },
+];
+
+interface PillarConfig {
+  id: string;
+  colSpan: string;
+  bgClass: string;
+  badge: string;
+  badgeClass: string;
+  titlePrefix: string;
+  titleHighlight: string;
+  highlightClass: string;
+  description: string;
+  ctaLabel: string;
+  ctaLink: string;
+  ctaClass: string;
+  productIds: string[];
+}
+
+const PILLARS: PillarConfig[] = [
+  {
+    id: "essential",
+    colSpan: "md:col-span-7",
+    bgClass: "bg-gradient-to-br from-[#10261c] via-[#173628] to-[#233d2c] text-white",
+    badge: "Parceira Oficial",
+    badgeClass: "bg-amber-400/20 border-amber-400/40 text-amber-200",
+    titlePrefix: "Essential Nutrition: ",
+    titleHighlight: "O Padrão Ouro",
+    highlightClass: "text-amber-300",
+    description: "Cacao Whey, Vanilla Whey, Collagen Skin Verisol® e suplementação clínica com pronta-entrega.",
+    ctaLabel: "Ver Linha Essential",
+    ctaLink: "/catalogo?categoria=Essential+Nutrition",
+    ctaClass: "bg-amber-400 hover:bg-amber-300 text-slate-950 font-semibold",
+    productIds: [
+      "essential-cacao-whey-900g",
+      "essential-vanilla-whey-900g",
+      "essential-collagen-skin-neutro-300g",
+    ],
+  },
+  {
+    id: "sem-gluten",
+    colSpan: "md:col-span-5",
+    bgClass: "bg-gradient-to-br from-[#123326] via-[#1b4634] to-[#122b20] text-white",
+    badge: "Selo Guindy",
+    badgeClass: "bg-emerald-400/20 border-emerald-300/40 text-emerald-200",
+    titlePrefix: "100% ",
+    titleHighlight: "Gluten Free Friendly",
+    highlightClass: "text-emerald-300",
+    description: "Snacks Belive, biscoitos Alere, leites vegetais e massas livres de contaminação cruzada.",
+    ctaLabel: "Explorar Sem Glúten",
+    ctaLink: "/catalogo?categoria=Sem+Gl%C3%BAten+%26+Sem+Lactose",
+    ctaClass: "bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold",
+    productIds: [
+      "belive-pao-de-mel-zero-45g",
+      "alere-biscoito-castanha-quinoa-70g",
+      "a-tal-da-castanha-amendoa-1l",
+    ],
+  },
+  {
+    id: "organicos",
+    colSpan: "md:col-span-5",
+    bgClass: "bg-gradient-to-br from-[#2d2415] via-[#3c2f1b] to-[#1f2418] text-white",
+    badge: "Superfoods & Integrais",
+    badgeClass: "bg-amber-400/20 border-amber-300/40 text-amber-200",
+    titlePrefix: "Orgânicos & ",
+    titleHighlight: "Superalimentos",
+    highlightClass: "text-amber-300",
+    description: "Cacau selvagem Color Andina, Laranja Moro Souly, stevia pura e granolas low carb.",
+    ctaLabel: "Ver Orgânicos",
+    ctaLink: "/catalogo?categoria=Org%C3%A2nicos+%26+Integrais",
+    ctaClass: "bg-amber-400 hover:bg-amber-300 text-slate-950 font-semibold",
+    productIds: [
+      "souly-laranja-moro-po-300g",
+      "color-andina-cacau-selvagem-200g",
+      "color-andina-curcuma-longa-100g",
+    ],
+  },
+  {
+    id: "fitoterapia",
+    colSpan: "md:col-span-7",
+    bgClass: "bg-gradient-to-br from-[#0e2a21] via-[#163b2f] to-[#0f221b] text-white",
+    badge: "Medicina Botânica",
+    badgeClass: "bg-emerald-400/20 border-emerald-300/40 text-emerald-200",
+    titlePrefix: "Fitoterapia & ",
+    titleHighlight: "Chás Medicinais",
+    highlightClass: "text-emerald-300",
+    description: "Tinturas botânicas Panizza, ervas medicinais do Vale do Ribeira, Aloe Vera e suplementos NOW & Vitafor.",
+    ctaLabel: "Explorar Fitoterápicos",
+    ctaLink: "/catalogo?categoria=Fitoter%C3%A1picos+%26+Ch%C3%A1s",
+    ctaClass: "bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold",
+    productIds: [
+      "panizza-tintura-acafrao-100ml",
+      "panizza-tintura-equinacea-100ml",
+      "cha-calendula-flores-30g",
     ],
   },
 ];
@@ -572,121 +579,68 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
 
           {/* Container: CARROSSEL NO MOBILE / BENTO GRID NO DESKTOP */}
           <div className="flex md:grid md:grid-cols-12 gap-4 md:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4 md:pb-0">
-            {/* Pilar 1: Essential Nutrition */}
-            <div className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 shrink-0 md:shrink md:col-span-7 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/70 bg-card shadow-soft min-h-[360px] sm:min-h-[420px] flex flex-col justify-end p-6 sm:p-10">
-              <img
-                src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=1200&q=85"
-                alt="Essential Nutrition"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+            {PILLARS.map((pillar) => {
+              const pillarProducts = pillar.productIds
+                .map((pid) => PRODUCT_BY_ID.get(pid))
+                .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
-              <div className="relative z-20">
-                <span className="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-200 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2">
-                  Parceira Oficial
-                </span>
-                <h3 className="font-display text-xl sm:text-4xl text-white font-normal leading-tight">
-                  Essential Nutrition: <strong className="font-bold text-amber-300">O Padrão Ouro</strong>
-                </h3>
-                <p className="mt-2 sm:mt-3 text-xs sm:text-base text-white/85 max-w-lg leading-relaxed">
-                  Cacao Whey, Collagen Skin Verisol®, Creatina pura e Chocolift sem açúcar com pronta-entrega.
-                </p>
-                <div className="mt-4 sm:mt-6">
-                  <Button asChild size="sm" className="rounded-full bg-amber-400 hover:bg-amber-500 text-slate-950 font-semibold text-xs sm:text-sm">
-                    <Link to="/catalogo?ingrediente=Essential">
-                      Ver Linha Essential <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Link>
-                  </Button>
+              return (
+                <div
+                  key={pillar.id}
+                  className={`min-w-[85vw] sm:min-w-[45vw] md:min-w-0 shrink-0 md:shrink ${pillar.colSpan} snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 ${pillar.bgClass} shadow-soft min-h-[360px] sm:min-h-[410px] flex flex-col justify-between p-6 sm:p-8`}
+                >
+                  {/* Vitrine com 3 produtos reais cadastrados */}
+                  <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5">
+                    {pillarProducts.map((prod) => (
+                      <Link
+                        key={prod.id}
+                        to={`/produto/${prod.id}`}
+                        className="group/item bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-md hover:-translate-y-1 transition-all flex flex-col items-center text-center"
+                      >
+                        <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
+                          <img
+                            src={prod.image_url}
+                            alt={prod.name}
+                            loading="lazy"
+                            className="w-full h-full object-contain group-hover/item:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <span className="mt-1.5 text-[10px] sm:text-xs font-medium text-slate-800 line-clamp-1 w-full">
+                          {prod.name.split("—")[0].trim()}
+                        </span>
+                        <span className="text-[11px] sm:text-xs font-bold text-primary">
+                          {prod.price_display}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="relative z-10">
+                    <span
+                      className={`inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2 ${pillar.badgeClass}`}
+                    >
+                      {pillar.badge}
+                    </span>
+                    <h3 className="font-display text-xl sm:text-3xl text-white font-normal leading-tight">
+                      {pillar.titlePrefix}
+                      <strong className={`font-bold ${pillar.highlightClass}`}>
+                        {pillar.titleHighlight}
+                      </strong>
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm text-white/85 max-w-lg leading-relaxed">
+                      {pillar.description}
+                    </p>
+                    <div className="mt-4 sm:mt-5">
+                      <Button asChild size="sm" className={`rounded-full text-xs sm:text-sm shadow-sm ${pillar.ctaClass}`}>
+                        <Link to={pillar.ctaLink}>
+                          {pillar.ctaLabel} <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Pilar 2: Selo Guindy */}
-            <div className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 shrink-0 md:shrink md:col-span-5 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/70 bg-card shadow-soft min-h-[360px] sm:min-h-[420px] flex flex-col justify-end p-6 sm:p-8">
-              <img
-                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
-                alt="Alimentação segura sem glúten"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
-
-              <div className="relative z-20">
-                <span className="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2">
-                  Selo Guindy
-                </span>
-                <h3 className="font-display text-xl sm:text-3xl text-white font-normal leading-tight">
-                  100% <strong className="font-bold text-emerald-300">Gluten Free Friendly</strong>
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-white/85 leading-relaxed">
-                  Pães artesanais, massas e lanches livres de contaminação cruzada. Tranquilidade para celíacos.
-                </p>
-                <div className="mt-4 sm:mt-5">
-                  <Button asChild variant="outline" size="sm" className="rounded-full border-white/30 text-white hover:bg-white/10 text-xs sm:text-sm">
-                    <Link to="/catalogo?ingrediente=Sem+Glúten">
-                      Explorar Sem Glúten <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Pilar 3: Granel Nobre */}
-            <div className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 shrink-0 md:shrink md:col-span-5 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/70 bg-card shadow-soft min-h-[340px] sm:min-h-[380px] flex flex-col justify-end p-6 sm:p-8">
-              <img
-                src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=1000&q=85"
-                alt="Castanhas e Granel Nobre"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
-
-              <div className="relative z-20">
-                <span className="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2">
-                  Giro Semanal
-                </span>
-                <h3 className="font-display text-xl sm:text-3xl text-white font-normal leading-tight">
-                  Castanhas & <strong className="font-bold text-amber-300">Granel Nobre</strong>
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-white/85 leading-relaxed">
-                  Castanha-do-Pará, Caju W1 torrado, chia, psyllium puro e farinhas funcionais fresquíssimas.
-                </p>
-                <div className="mt-4 sm:mt-5">
-                  <Button asChild variant="outline" size="sm" className="rounded-full border-white/30 text-white hover:bg-white/10 text-xs sm:text-sm">
-                    <Link to="/catalogo?ingrediente=Castanhas">
-                      Ver Granel <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Pilar 4: Fitoterapia */}
-            <div className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 shrink-0 md:shrink md:col-span-7 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-border/70 bg-card shadow-soft min-h-[340px] sm:min-h-[380px] flex flex-col justify-end p-6 sm:p-10">
-              <img
-                src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85"
-                alt="Fitoterapia e Chás Medicinais"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
-
-              <div className="relative z-20">
-                <span className="inline-block px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-400/20 border border-emerald-400/40 text-emerald-200 text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-2">
-                  Medicina Botânica
-                </span>
-                <h3 className="font-display text-xl sm:text-4xl text-white font-normal leading-tight">
-                  Fitoterapia & <strong className="font-bold text-emerald-300">Chás Medicinais</strong>
-                </h3>
-                <p className="mt-2 sm:mt-3 text-xs sm:text-base text-white/85 max-w-lg leading-relaxed">
-                  Extratos concentrados, Própolis Verde com Artepellin-C, cúrcuma pura e infusões tradicionais.
-                </p>
-                <div className="mt-4 sm:mt-6">
-                  <Button asChild size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs sm:text-sm">
-                    <Link to="/catalogo?ingrediente=Fitoterápicos">
-                      Explorar Fitoterápicos <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -761,56 +715,58 @@ export const ImposingHomeExperience: React.FC<ImposingHomeExperienceProps> = ({ 
                 </Button>
               </div>
 
-              {/* Grid / Carrossel de 3 Produtos Recomendados */}
+              {/* Grid / Carrossel de 3 Produtos Reais Recomendados */}
               <div className="flex sm:grid sm:grid-cols-3 gap-3 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-3 sm:pb-0">
-                {currentGoalData.products.map((prod) => (
-                  <div
-                    key={prod.name}
-                    className="min-w-[75vw] sm:min-w-0 shrink-0 sm:shrink snap-start p-4 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="relative rounded-lg sm:rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-muted">
-                        <img
-                          src={prod.image}
-                          alt={prod.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-medium border border-white/10">
-                          {prod.badge}
+                {currentGoalData.productIds
+                  .map((pid) => PRODUCT_BY_ID.get(pid))
+                  .filter((prod): prod is NonNullable<typeof prod> => Boolean(prod))
+                  .map((prod) => (
+                    <div
+                      key={prod.id}
+                      className="min-w-[75vw] sm:min-w-0 shrink-0 sm:shrink snap-start p-4 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between group"
+                    >
+                      <Link to={`/produto/${prod.id}`} className="block">
+                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden aspect-[4/3] mb-3 bg-white p-3 border border-border/40">
+                          <img
+                            src={prod.image_url}
+                            alt={prod.name}
+                            loading="lazy"
+                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          />
+                          {prod.sku && (
+                            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-secondary text-foreground/80 font-mono text-[10px] font-medium border border-border">
+                              {prod.sku}
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                          {prod.category}
                         </span>
-                      </div>
-                      <h4 className="font-display text-sm sm:text-lg text-foreground font-semibold leading-snug line-clamp-2">
-                        {prod.name}
-                      </h4>
-                      <p className="text-[11px] sm:text-xs text-muted-foreground mt-1.5 leading-relaxed line-clamp-2">
-                        {prod.desc}
-                      </p>
-                    </div>
+                        <h4 className="font-display text-sm sm:text-lg text-foreground font-semibold leading-snug line-clamp-2 mt-0.5 group-hover:text-primary transition-colors">
+                          {prod.name}
+                        </h4>
+                        <p className="text-[11px] sm:text-xs text-muted-foreground mt-1.5 leading-relaxed line-clamp-2">
+                          {extractSummary(prod.description, 140).summary}
+                        </p>
+                      </Link>
 
-                    <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between">
-                      <span className="font-mono text-sm sm:text-lg font-bold text-primary">
-                        {prod.price}
-                      </span>
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className="h-7 sm:h-8 px-2.5 rounded-full text-xs hover:bg-primary hover:text-primary-foreground"
-                      >
-                        <a
-                          href={`https://wa.me/${AMARYLLIS_COMPANY.whatsapp}?text=${encodeURIComponent(
-                            prod.waText
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between gap-2">
+                        <span className="font-mono text-sm sm:text-lg font-bold text-primary">
+                          {prod.price_display}
+                        </span>
+                        <Button
+                          asChild
+                          size="sm"
+                          variant="outline"
+                          className="h-7 sm:h-8 px-3 rounded-full text-xs hover:bg-primary hover:text-primary-foreground"
                         >
-                          <MessageCircle className="w-3 h-3 mr-1" />
-                          Reservar
-                        </a>
-                      </Button>
+                          <Link to={`/produto/${prod.id}`}>
+                            Ver produto <ArrowRight className="w-3 h-3 ml-1" />
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </motion.div>
           </AnimatePresence>
