@@ -16,7 +16,7 @@ import SocialShare from "@/components/SocialShare";
 import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/use-toast";
 import { AMARYLLIS_COMPANY, AMARYLLIS_PRODUCTS } from "@/lib/amaryllisFallbackData";
-import { stripHtml, hasHtmlTags } from "@/lib/htmlUtils";
+import { stripHtml, extractSummary } from "@/lib/htmlUtils";
 
 const WHATSAPP_URL = `https://wa.me/${AMARYLLIS_COMPANY.whatsapp}?text=`;
 
@@ -128,6 +128,7 @@ const Produto = () => {
   }
 
   const whatsappMessage = `Olá, Amaryllis Produtos Naturais! Gostaria de saber mais sobre: ${product.name} (${product.price})`;
+  const { summary: shortDescription, hasMore: hasDetailedDescription } = extractSummary(product.description);
 
   return (
     <main className="pt-24 pb-20">
@@ -192,15 +193,27 @@ const Produto = () => {
               <span className="text-sm text-muted-foreground ml-2">Curadoria Especializada Amaryllis</span>
             </div>
 
-            <p className="font-serif text-3xl font-bold text-primary mb-6">{product.price}</p>
+            <p className="font-serif text-3xl font-bold text-primary mb-5">{product.price}</p>
 
-            <div className="prose prose-sm max-w-none text-muted-foreground mb-8 leading-relaxed [&>h3]:font-serif [&>h3]:text-foreground [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mb-3 [&>h3]:mt-0 [&>h4]:text-foreground [&>h4]:font-semibold [&>h4]:text-sm [&>h4]:mt-5 [&>h4]:mb-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>p]:mb-3 [&>strong]:text-foreground [&>ul>li>strong]:text-foreground">
-              {hasHtmlTags(product.description) ? (
-                <div dangerouslySetInnerHTML={{ __html: product.description }} />
-              ) : (
-                <p>{product.description}</p>
-              )}
-            </div>
+            {shortDescription && (
+              <div className="mb-7 space-y-2">
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  {shortDescription}
+                </p>
+                {hasDetailedDescription && (
+                  <a
+                    href="#detalhes-produto"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById("detalhes-produto")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="inline-flex items-center text-xs font-semibold text-primary hover:underline"
+                  >
+                    Ver descrição completa, benefícios e ingredientes ↓
+                  </a>
+                )}
+              </div>
+            )}
 
             <div className="grid grid-cols-2 gap-3 mb-8">
               {[
@@ -290,6 +303,7 @@ const Produto = () => {
           category={product.category}
           description={product.description}
           weightGrams={dbProduct?.weight_grams ?? 300}
+          sku={product.sku}
         />
 
         <CrossSell currentProductId={id || ""} currentCategory={product.category} />

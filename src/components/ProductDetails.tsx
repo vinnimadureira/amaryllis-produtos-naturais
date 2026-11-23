@@ -15,13 +15,14 @@ import {
   HeartHandshake,
   HelpCircle,
 } from "lucide-react";
-import { stripHtml, hasHtmlTags } from "@/lib/htmlUtils";
+import { hasHtmlTags } from "@/lib/htmlUtils";
 
 interface ProductDetailsProps {
   name: string;
   category?: string;
   description?: string;
   weightGrams?: number;
+  sku?: string;
 }
 
 const KEYWORD_HIGHLIGHTS: Record<string, string[]> = {
@@ -64,11 +65,12 @@ const getHighlights = (name: string): string[] => {
   ];
 };
 
-const ProductDetails = ({ name, category, description, weightGrams = 300 }: ProductDetailsProps) => {
+const ProductDetails = ({ name, category, description, weightGrams = 300, sku }: ProductDetailsProps) => {
   const highlights = getHighlights(name);
 
   return (
     <motion.section
+      id="detalhes-produto"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -130,6 +132,7 @@ const ProductDetails = ({ name, category, description, weightGrams = 300 }: Prod
               </p>
               <dl className="divide-y divide-border/60 text-sm">
                 {[
+                  ...(sku ? [["Código", sku]] : []),
                   ["Categoria", category || "Produtos Naturais"],
                   ["Perfil", "Nutrição Saudável & Funcional"],
                   ["Disponibilidade", "Pronta-Entrega & Delivery"],
@@ -141,20 +144,26 @@ const ProductDetails = ({ name, category, description, weightGrams = 300 }: Prod
                   </div>
                 ))}
               </dl>
-              {description && (
-                hasHtmlTags(description) ? (
-                  <div 
-                    className="text-xs text-muted-foreground mt-4 leading-relaxed [&>h3]:hidden [&>h4]:font-semibold [&>h4]:text-foreground [&>h4]:mt-2.5 [&>h4]:mb-1 [&>ul]:list-disc [&>ul]:pl-4 [&>ul]:space-y-1 [&>p]:mb-2 [&>strong]:text-foreground"
-                    dangerouslySetInnerHTML={{ __html: description }}
-                  />
-                ) : (
-                  <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                    {description}
-                  </p>
-                )
-              )}
             </div>
           </div>
+
+          {description && (
+            <div className="mt-6 bg-card/80 border border-border rounded-2xl p-6 md:p-8">
+              {hasHtmlTags(description) ? (
+                <div
+                  className="text-sm text-muted-foreground leading-relaxed [&_h3]:font-serif [&_h3]:text-foreground [&_h3]:text-xl [&_h3]:font-bold [&_h3]:mb-3 [&_h3]:mt-0 [&_h4]:text-foreground [&_h4]:font-semibold [&_h4]:text-base [&_h4]:mt-6 [&_h4]:mb-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ul]:my-3 [&_p]:mb-3 [&_strong]:text-foreground [&_strong]:font-semibold"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              ) : (
+                <>
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                    Sobre o produto
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+                </>
+              )}
+            </div>
+          )}
         </TabsContent>
 
         <TabsContent value="uso" className="mt-6">
