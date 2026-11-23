@@ -63,6 +63,7 @@ export function productJsonLd(product: {
   price: string;
   image: string;
   id: string;
+  sku?: string;
 }) {
   const numericPrice = product.price.replace(/[^\d,]/g, "").replace(",", ".");
   return {
@@ -72,6 +73,7 @@ export function productJsonLd(product: {
     description: stripHtml(product.description),
     image: product.image,
     url: `/produto/${product.id}`,
+    ...(product.sku ? { sku: product.sku } : {}),
     brand: { "@type": "Brand", name: SITE_NAME },
     offers: {
       "@type": "Offer",

@@ -52,6 +52,28 @@ const ALLOWED_TABLES = new Set([
   "os_public",
 ]);
 
+// Product codes (SKU): category prefix + 4-digit sequence, e.g. FIT-0012
+const SKU_PREFIXES: Record<string, string> = {
+  "Essential Nutrition": "ESS",
+  "Suplementos & Essential": "SUP",
+  "Suplementos & Proteínas": "SUP",
+  "Sem Glúten & Sem Lactose": "SGL",
+  "Granel & Castanhas": "GRN",
+  "Fitoterápicos & Chás": "FIT",
+  "Orgânicos & Integrais": "ORG",
+  "Dietéticos & Zero Açúcar": "DIE",
+};
+
+async function nextProductSku(db: D1Database, category: unknown): Promise<string> {
+  const prefix = (typeof category === "string" && SKU_PREFIXES[category]) || "PRD";
+  const last = await db
+    .prepare("SELECT sku FROM products WHERE sku LIKE ? ORDER BY sku DESC LIMIT 1")
+    .bind(`${prefix}-%`)
+    .first<{ sku: string }>();
+  const lastNum = last?.sku ? parseInt(last.sku.split("-")[1] ?? "0", 10) || 0 : 0;
+  return `${prefix}-${String(lastNum + 1).padStart(4, "0")}`;
+}
+
 const BOOLEAN_COLS = new Set([
   "active",
   "featured",
@@ -358,6 +380,14 @@ app.post("/query", async (c) => {
         const row = { ...rawRow };
         if (pk === "id" && !row.id && table !== "email_send_state") {
           row.id = crypto.randomUUID();
+        }
+        if (table === "products" && !row.sku) {
+          const existing = await c.env.DB.prepare("SELECT sku, category FROM products WHERE id = ?").bind(row.id).first<{ sku: string | null; category: string | null }>();
+          if (!existing) {
+            row.sku = await nextProductSku(c.env.DB, row.category);
+          } else if (!existing.sku && body.action === "upsert") {
+            row.sku = await nextProductSku(c.env.DB, row.category ?? existing.category);
+          }
         }
         if (table === "agenda_events" && !row.order_number) {
           const maxOrd = await c.env.DB.prepare("SELECT COALESCE(MAX(order_number), 0) + 1 as next_num FROM agenda_events").first<{ next_num: number }>();

@@ -30,3 +30,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc

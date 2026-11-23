@@ -89,6 +89,7 @@ const Produto = () => {
         price: dbProduct.price_display,
         image: dbProduct.image_url || "/placeholder.svg",
         category: dbProduct.category,
+        sku: (dbProduct as { sku?: string | null }).sku || "",
       }
     : null;
 
@@ -142,6 +143,7 @@ const Produto = () => {
           price: product.price,
           image: product.image,
           id: id || "",
+          sku: product.sku,
         })}
       />
       <div className="container">
@@ -173,9 +175,15 @@ const Produto = () => {
               {product.category}
             </span>
 
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground leading-tight mb-2">
               {product.name}
             </h1>
+
+            {product.sku && (
+              <p className="text-xs text-muted-foreground mb-4">
+                Cód.: <span className="font-mono font-medium text-foreground/80 select-all">{product.sku}</span>
+              </p>
+            )}
 
             <div className="flex items-center gap-1 mb-4">
               {[...Array(5)].map((_, i) => (

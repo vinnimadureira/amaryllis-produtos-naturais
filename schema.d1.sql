@@ -56,6 +56,7 @@ CREATE TABLE user_roles (
 
 CREATE TABLE products (
   id TEXT PRIMARY KEY,
+  sku TEXT,
   name TEXT NOT NULL,
   description TEXT,
   price REAL NOT NULL DEFAULT 0.0,

@@ -33,6 +33,7 @@ export const AMARYLLIS_CATEGORIES = [
 export const AMARYLLIS_PRODUCTS = [
   {
     id: "essential-cacao-whey-900g",
+    sku: "ESS-0001",
     name: "Cacao Whey 900g — Essential Nutrition",
     description: "Whey Protein Isolado e Hidrolisado com puro cacau belga 100%, peptídeos de colágeno e adoçantes naturais.",
     price: 298.0,
@@ -52,6 +53,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-vanilla-whey-900g",
+    sku: "ESS-0002",
     name: "Vanilla Whey 900g — Essential Nutrition",
     description: "Whey Protein Isolado e Hidrolisado com favas de baunilha natural e peptídeos de colágeno.",
     price: 298.0,
@@ -71,6 +73,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-red-berry-whey-900g",
+    sku: "ESS-0003",
     name: "Red Berry Whey 900g — Essential Nutrition",
     description: "Whey Isolado e Hidrolisado com polpa pura de frutas vermelhas (morango, framboesa e amora).",
     price: 310.0,
@@ -90,6 +93,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-beefprotein-cacau-960g",
+    sku: "ESS-0004",
     name: "BeefProtein Cacau 960g — Essential Nutrition",
     description: "Proteína isolada e 100% hidrolisada da carne bovina sueca alimentada a pasto. Zero lactose, zero leite.",
     price: 320.0,
@@ -109,6 +113,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-beefprotein-banana-canela-960g",
+    sku: "ESS-0005",
     name: "BeefProtein Banana com Canela 960g — Essential Nutrition",
     description: "Proteína isolada de carne bovina alimentada a pasto com banana liofilizada e canela pura.",
     price: 320.0,
@@ -128,6 +133,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-veggie-protein-cacau-450g",
+    sku: "ESS-0006",
     name: "Veggie Protein Cacau 450g — Essential Nutrition",
     description: "Proteína vegetal isolada da ervilha amarela e da amêndoa orgânica com vitamina B12 e cacau.",
     price: 198.0,
@@ -147,6 +153,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-veggie-protein-neutro-450g",
+    sku: "ESS-0007",
     name: "Veggie Protein Neutro 450g — Essential Nutrition",
     description: "Proteína 100% vegetal isolada sem sabor para receitas doces e salgadas, enriquecida com Vitamina B12.",
     price: 198.0,
@@ -166,6 +173,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-beta-action-20doses",
+    sku: "ESS-0008",
     name: "Beta Action 20 Doses — Essential Nutrition",
     description: "Fórmula pré-treino de resistência muscular com 2g de Beta-Alanina, 18g de Palatinose™ e Eletrólitos.",
     price: 189.0,
@@ -185,6 +193,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-muscle-synergy-15doses",
+    sku: "ESS-0009",
     name: "Muscle Synergy 15 Doses — Essential Nutrition",
     description: "Fórmula sinérgica avançada com 15g de Proteína de Colágeno BodyBalance, 3g Creatina Creapure e 3g BCAA.",
     price: 249.0,
@@ -204,6 +213,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-skin-neutro-300g",
+    sku: "ESS-0010",
     name: "Collagen Skin Neutro 300g — Essential Nutrition",
     description: "Peptídeos Bioativos de Colágeno Verisol® com Ácido Hialurônico, Silício Orgânico, Biotina e Vitamina C.",
     price: 189.0,
@@ -223,6 +233,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-skin-limao-300g",
+    sku: "ESS-0011",
     name: "Collagen Skin Limão Siciliano 300g — Essential Nutrition",
     description: "Verisol® com Ácido Hialurônico e Vitamina C com sabor natural e refrescante de Limão Siciliano.",
     price: 189.0,
@@ -242,6 +253,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-2-joint-limao-30doses",
+    sku: "ESS-0012",
     name: "Collagen 2 Joint Limão Siciliano 30 Doses — Essential Nutrition",
     description: "Colágeno Tipo II não desnaturado (UC-II® 40mg) + 9,3g de Peptídeos de Colágeno Tipo I (Peptan®) para articulações.",
     price: 235.0,
@@ -261,6 +273,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-bones-chocolate-30doses",
+    sku: "ESS-0013",
     name: "Collagen Bones Chocolate 30 Doses — Essential Nutrition",
     description: "Fórmula para saúde óssea: Peptídeos de colágeno, Cálcio de Algas Marinhas, Silício, Boro, Zinco e Vit D3 2000UI.",
     price: 249.0,
@@ -280,6 +293,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-bodybalance-neutro-30doses",
+    sku: "ESS-0014",
     name: "Collagen BodyBalance Neutro 30 Doses — Essential Nutrition",
     description: "100% Peptídeos Bioativos BodyBalance® para manutenção e ganho de massa muscular e combate à sarcopenia.",
     price: 220.0,
@@ -299,6 +313,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-bodybalance-chocolate-25doses",
+    sku: "ESS-0015",
     name: "Collagen BodyBalance Chocolate 25 Doses — Essential Nutrition",
     description: "Peptídeos BodyBalance® para tônus muscular com puro cacau gourmet e vitamina C.",
     price: 220.0,
@@ -318,6 +333,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-glutamina-300g",
+    sku: "ESS-0016",
     name: "Glutamina Pura 300g — Essential Nutrition",
     description: "100% L-Glutamina pura de tecnologia japonesa ultrarrefinada. Saúde intestinal e imunológica.",
     price: 145.0,
@@ -337,6 +353,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-crealift-creapure-300g",
+    sku: "ESS-0017",
     name: "Crealift Creapure 300g — Essential Nutrition",
     description: "100% Creatina Monohidratada Creapure® alemã. Pureza máxima sem resíduos, 100 doses.",
     price: 169.0,
@@ -356,6 +373,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-brainstorm-coffee-original-220g",
+    sku: "ESS-0018",
     name: "Brainstorm Coffee Original 220g — Essential Nutrition",
     description: "Café funcional com 200mg de L-Teanina, TCM, CoQ10, Guaraná, Vitaminas B ativas e Cafeína de liberação prolongada.",
     price: 189.0,
@@ -375,6 +393,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-brainstorm-coffee-caramelo-220g",
+    sku: "ESS-0019",
     name: "Brainstorm Coffee Caramelo 220g — Essential Nutrition",
     description: "Versão com sabor aveludado de caramelo do consagrado café funcional nootrópico.",
     price: 189.0,
@@ -394,6 +413,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-fiberbime-laranja-30doses",
+    sku: "ESS-0020",
     name: "Fiberbime Laranja 30 Doses — Essential Nutrition",
     description: "Blend prebiótico avançado de fibras solúveis e insolúveis com polpa de laranja natural.",
     price: 165.0,
@@ -413,6 +433,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-fiberbime-neutro-30doses",
+    sku: "ESS-0021",
     name: "Fiberbime Neutro 30 Doses — Essential Nutrition",
     description: "Blend prebiótico de fibras solúveis sem sabor para misturar na água, suco ou refeição.",
     price: 165.0,
@@ -432,6 +453,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-aminogreens-30doses",
+    sku: "ESS-0022",
     name: "Aminogreens 30 Doses — Essential Nutrition",
     description: "9 Aminoácidos Essenciais livres em proporção equimolar associados a superfoods verdes e minerais.",
     price: 229.0,
@@ -451,6 +473,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-carbolift-palatinose-300g",
+    sku: "ESS-0023",
     name: "Carbolift 100% Palatinose 300g — Essential Nutrition",
     description: "100% Isomaltulose (Palatinose™). Carboidrato funcional de baixo índice glicêmico para liberação constante de energia.",
     price: 125.0,
@@ -470,6 +493,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-hydrolift-limao-30doses",
+    sku: "ESS-0024",
     name: "Hydrolift Limão Siciliano 30 Doses — Essential Nutrition",
     description: "Eletrólitos essenciais para hidratação celular avançada com água de coco e vitamina C.",
     price: 149.0,
@@ -489,6 +513,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-aminolift-tangerina-30doses",
+    sku: "ESS-0025",
     name: "Aminolift Tangerina 30 Doses — Essential Nutrition",
     description: "Complexo dos 9 Aminoácidos Essenciais com sabor refrescante de tangerina.",
     price: 210.0,
@@ -508,6 +533,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-mct-lift-250ml",
+    sku: "ESS-0026",
     name: "MCT Lift Óleo de Coco Puro 250ml — Essential Nutrition",
     description: "Triglicerídeos de Cadeia Média (TCM) 100% puros com predominância de C8 (ácido caprílico) e C10 (cáprico).",
     price: 139.0,
@@ -527,6 +553,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-xylitol-300g",
+    sku: "ESS-0027",
     name: "Xylitol Natural 300g — Essential Nutrition",
     description: "Adoçante de fonte vegetal não transgênica (Non-GMO), com baixo índice glicêmico e sem sabor residual.",
     price: 68.0,
@@ -546,6 +573,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-creatine-action-gummy-30doses",
+    sku: "ESS-0028",
     name: "Creatine Action Gummy Laranja 30 Doses — Essential Nutrition",
     description: "Creatina ultra pura em gomas mastigáveis sabor laranja. Praticidade absoluta no seu dia a dia.",
     price: 185.0,
@@ -565,6 +593,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-super-omega-3-tg-60caps",
+    sku: "ESS-0029",
     name: "Super Ômega-3 TG 60 Cápsulas — Essential Nutrition",
     description: "Óleo de peixe concentrado na forma Triglicerídeos (TG) com 1080mg EPA e 720mg DHA por dose. Selo IFOS 5 estrelas.",
     price: 145.0,
@@ -584,6 +613,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-super-omega-3-tg-120caps",
+    sku: "ESS-0030",
     name: "Super Ômega-3 TG 120 Cápsulas — Essential Nutrition",
     description: "Embalagem econômica com 120 cápsulas do renomado Super Ômega-3 TG certificado IFOS.",
     price: 259.0,
@@ -603,6 +633,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-super-omega-3-tg-comfort",
+    sku: "ESS-0031",
     name: "Super Ômega-3 TG Comfort 60 Cápsulas — Essential Nutrition",
     description: "Tecnologia avançada de revestimento entérico para conforto gástrico total e zero sabor residual.",
     price: 169.0,
@@ -622,6 +653,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-dha-tg-90caps",
+    sku: "ESS-0032",
     name: "DHA TG Concentrado 90 Cápsulas — Essential Nutrition",
     description: "Altíssima concentração de DHA (1500mg DHA + 450mg EPA). Foco na cognição, memória e gestação.",
     price: 229.0,
@@ -641,6 +673,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-omega-core-60caps",
+    sku: "ESS-0033",
     name: "Ômega Core 60 Cápsulas — Essential Nutrition",
     description: "Combinação nobre de Óleo de Krill, Óleo de Peixe TG, 100mg CoQ10 e Astaxantina.",
     price: 289.0,
@@ -660,6 +693,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-omega-vision-60caps",
+    sku: "ESS-0034",
     name: "Ômega Vision 60 Cápsulas — Essential Nutrition",
     description: "Fórmula oftalmológica completa: DHA TG, Óleo de Krill, 20mg Luteína, 2mg Zeaxantina e Astaxantina.",
     price: 275.0,
@@ -679,6 +713,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-coq10-omega3-tg-60caps",
+    sku: "ESS-0035",
     name: "CoQ10 Ômega-3 TG 60 Cápsulas — Essential Nutrition",
     description: "100mg de Coenzima Q10 pura veiculada em Super Ômega-3 TG para biodisponibilidade incomparável.",
     price: 219.0,
@@ -698,6 +733,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-omega-brain-60caps",
+    sku: "ESS-0036",
     name: "Ômega Brain 60 Cápsulas — Essential Nutrition",
     description: "Suporte à atenção e foco com 600mg DHA, 210mg EPA e Óleo de Krill bioativo.",
     price: 269.0,
@@ -717,6 +753,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-b-complex-120caps",
+    sku: "ESS-0037",
     name: "[B] Complex Ativo 120 Cápsulas — Essential Nutrition",
     description: "Complexo B completo com vitaminas em suas formas ativas e metiladas (Metilfolato, Metilcobalamina).",
     price: 149.0,
@@ -736,6 +773,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-fe-complex-90caps",
+    sku: "ESS-0038",
     name: "[Fe] Complex Ferro Quelato 90 Cápsulas — Essential Nutrition",
     description: "Ferro bisglicinato quelato de alta absorção que não agride o estômago, com Cobre, Vit C e Complexo B.",
     price: 139.0,
@@ -755,6 +793,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-vit-d3-2000ui-120caps",
+    sku: "ESS-0039",
     name: "Vitamina D3 2000 UI 120 Cápsulas — Essential Nutrition",
     description: "Colecalciferol puro veiculado em azeite de oliva extravirgem para absorção rápida.",
     price: 89.0,
@@ -774,6 +813,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-gamalift-30doses",
+    sku: "ESS-0040",
     name: "Gamalift Óleo de Borragem 30 Doses — Essential Nutrition",
     description: "Óleo de borragem prensado a frio com 400mg GLA (ácido gama-linolênico) e Vitamina E natural.",
     price: 179.0,
@@ -793,6 +833,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-focus-60caps",
+    sku: "ESS-0041",
     name: "Focus L-Teanina & Cafeína 60 Cápsulas — Essential Nutrition",
     description: "250mg L-Teanina associada à Cafeína purificada para concentração prolongada sem dispersão.",
     price: 149.0,
@@ -812,6 +853,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-melatonin-duo-120caps",
+    sku: "ESS-0042",
     name: "Melatonin Duo Harmony 120 Cápsulas — Essential Nutrition",
     description: "Sistema Duo de Melatonina: Liberação Rápida para adormecer + Lenta para sono reparador a noite toda.",
     price: 159.0,
@@ -831,6 +873,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-melatonin-duo-gotas-menta",
+    sku: "ESS-0043",
     name: "Melatonin Duo Gotas Sabor Menta 30ml — Essential Nutrition",
     description: "Melatonina sublingual líquida de absorção quase instantânea com aroma natural de menta.",
     price: 98.0,
@@ -850,6 +893,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-mg-complex-90caps",
+    sku: "ESS-0044",
     name: "[Mg] Complex 350mg 90 Cápsulas — Essential Nutrition",
     description: "Blend de 4 Magnésios Nobres: Bisglicinato, Malato, Taurato e Citrato. Alta biodisponibilidade celular.",
     price: 149.0,
@@ -869,6 +913,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-nac-glycine-taurine-90caps",
+    sku: "ESS-0045",
     name: "NAC + Glycine + Taurine 90 Cápsulas — Essential Nutrition",
     description: "Precursores diretos da Glutationa: 600mg NAC + 1000mg Glicina + 500mg Taurina para detox celular.",
     price: 179.0,
@@ -888,6 +933,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-collagen-gut-20doses",
+    sku: "ESS-0046",
     name: "Collagen Gut 20 Doses — Essential Nutrition",
     description: "Fórmula para integridade da mucosa intestinal com peptídeos de colágeno, glutamina, fibras e zinco.",
     price: 249.0,
@@ -907,6 +953,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "essential-mondz-almonds-50g",
+    sku: "ESS-0047",
     name: "Mondz Amêndoas Crocantes com Chocolate 50g — Essential Nutrition",
     description: "Amêndoas levemente tostadas e crocantes envoltas em chocolate nobre zero adição de açúcares.",
     price: 24.0,
@@ -926,6 +973,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-acafrao-100ml",
+    sku: "FIT-0001",
     name: "Tintura Vegetal de Açafrão 20% 100ml — Panizza",
     description: "Extrato vegetal concentrado 20% de Cúrcuma Longa (Rizoma). Potente anti-inflamatório natural e digestivo.",
     price: 42.0,
@@ -945,6 +993,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-arnica-100ml",
+    sku: "FIT-0002",
     name: "Tintura Vegetal de Arnica 100ml — Panizza",
     description: "Extrato de Arnica montana para alívio de contusões, dores musculares e tensões articulares.",
     price: 39.0,
@@ -964,6 +1013,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-artemisia-100ml",
+    sku: "FIT-0003",
     name: "Tintura Vegetal de Artemísia 100ml — Panizza",
     description: "Extrato hidroalcoólico de Artemisia vulgaris para suporte ao ciclo feminino e conforto digestivo.",
     price: 39.0,
@@ -983,6 +1033,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-babosa-100ml",
+    sku: "FIT-0004",
     name: "Tintura Vegetal de Babosa (Aloe Vera) 100ml — Panizza",
     description: "Extrato botânico de Aloe vera para cicatrização da mucosa gástrica e modulação imunológica.",
     price: 44.0,
@@ -1002,6 +1053,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-calendula-100ml",
+    sku: "FIT-0005",
     name: "Tintura Vegetal de Calêndula 100ml — Panizza",
     description: "Extrato das flores de Calendula officinalis. Ação antisséptica, cicatrizante e calmante.",
     price: 42.0,
@@ -1021,6 +1073,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-canela-de-velho-100ml",
+    sku: "FIT-0006",
     name: "Tintura de Canela de Velho 100ml — Panizza",
     description: "Extrato de Miconia albicans para dores nas articulações, artrite, artrose e coluna.",
     price: 42.0,
@@ -1040,6 +1093,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-cavalinha-100ml",
+    sku: "FIT-0007",
     name: "Tintura Vegetal de Cavalinha 100ml — Panizza",
     description: "Rica em silício orgânico e minerais. Potente ação diurética sem esgotar eletrólitos.",
     price: 38.0,
@@ -1059,6 +1113,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-confrei-100ml",
+    sku: "FIT-0008",
     name: "Tintura Vegetal de Confrei 100ml — Panizza",
     description: "Extrato de raiz de Confrei rico em alantoína para compressas e cicatrização externa.",
     price: 38.0,
@@ -1078,6 +1133,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-espinheira-santa-100ml",
+    sku: "FIT-0009",
     name: "Tintura de Espinheira Santa 100ml — Panizza",
     description: "Extrato padronizado de Maytenus ilicifolia. O fitoterápico de referência para queimação gástrica, gastrite e refluxo.",
     price: 44.0,
@@ -1097,6 +1153,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-ginkgo-biloba-100ml",
+    sku: "FIT-0010",
     name: "Tintura de Ginkgo Biloba 100ml — Panizza",
     description: "Melhora a microcirculação cerebral e periférica, auxiliando no foco, memória e alívio de labirintite.",
     price: 44.0,
@@ -1116,6 +1173,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-mulungu-100ml",
+    sku: "FIT-0011",
     name: "Tintura Vegetal de Mulungu 100ml — Panizza",
     description: "Extrato de casca de Mulungu (Erythrina mulungu). O calmante natural mais potente da flora brasileira para ansiedade e insônia.",
     price: 42.0,
@@ -1135,6 +1193,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-sucupira-100ml",
+    sku: "FIT-0012",
     name: "Tintura Vegetal de Sucupira 100ml — Panizza",
     description: "Extrato concentrado das sementes de Sucupira para alívio articular, garganta e inflamações gerais.",
     price: 44.0,
@@ -1154,6 +1213,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "forever-aloe-vera-gel-1l",
+    sku: "FIT-0013",
     name: "Forever Aloe Vera Gel 1 Litro — Forever Living",
     description: "99,7% de puro gel interno da folha de Aloe Vera estabilizado. Digestão impecável, imunidade e desintoxicação.",
     price: 149.0,
@@ -1173,6 +1233,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "forever-aloe-berry-nectar-1l",
+    sku: "FIT-0014",
     name: "Forever Aloe Berry Nectar 1 Litro — Forever Living",
     description: "Aloe Vera estabilizada associada ao cranberry e maçã para proteção do trato urinário.",
     price: 149.0,
@@ -1192,6 +1253,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "forever-aloe-peaches-1l",
+    sku: "FIT-0015",
     name: "Forever Aloe Peaches 1 Litro — Forever Living",
     description: "Puro gel de Aloe Vera com suco natural de pêssego maduro. Sabor doce e refrescante para toda a família.",
     price: 149.0,
@@ -1211,6 +1273,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "greenbios-cha-alecrim-30g",
+    sku: "FIT-0016",
     name: "Chá de Alecrim Puro 30g — GreenBios",
     description: "Folhas selecionadas de Rosmarinus officinalis do Vale do Ribeira. Memória, digestão e vitalidade.",
     price: 12.0,
@@ -1230,6 +1293,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "greenbios-cha-espinheira-santa-20g",
+    sku: "FIT-0017",
     name: "Chá de Espinheira Santa 20g — GreenBios",
     description: "Folhas íntegras de Maytenus ilicifolia. O chá clássico para acalmar o estômago e combater azia.",
     price: 14.0,
@@ -1249,6 +1313,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "greenbios-cha-camomila-30g",
+    sku: "FIT-0018",
     name: "Chá de Camomila Flores 30g — GreenBios",
     description: "Flores inteiras de Chamomilla recutita para um sono tranquilo e relaxamento natural.",
     price: 12.0,
@@ -1268,6 +1333,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "greenbios-cha-erva-baleeira-30g",
+    sku: "FIT-0019",
     name: "Chá de Erva Baleeira 30g — GreenBios",
     description: "Folhas e talos de Cordia verbenacea. A planta anti-inflamatória e analgésica da Mata Atlântica.",
     price: 15.0,
@@ -1287,6 +1353,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "greenbios-cha-mulungu-30g",
+    sku: "FIT-0020",
     name: "Chá de Mulungu Cascas 30g — GreenBios",
     description: "Cascas de Erythrina mulungu para decocção noturna. Sono profundo e desaceleração do estresse.",
     price: 14.0,
@@ -1306,6 +1373,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-vitamin-d3-k2-120caps",
+    sku: "SUP-0001",
     name: "Vitamin D-3 & K-2 1000 UI / 45mcg 120 Cápsulas — NOW Foods",
     description: "Sinergia perfeita: Vitamina D3 para absorção do cálcio + Vitamina K2 (MenaQ7) para direcionamento aos ossos.",
     price: 169.0,
@@ -1325,6 +1393,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-chlorella-500mg-200tabs",
+    sku: "SUP-0002",
     name: "Certified Organic Chlorella 500mg 200 Tabletes — NOW Foods",
     description: "Microalga verde orgânica USDA com parede celular rompida (Broken Cell Wall) para detox de metais pesados.",
     price: 198.0,
@@ -1344,6 +1413,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-l-tryptophan-500mg-60caps",
+    sku: "SUP-0003",
     name: "L-Tryptophan 500mg 60 Cápsulas — NOW Foods",
     description: "Aminoácido essencial precursor da serotonina e melatonina para apoio ao humor e sono reparador.",
     price: 155.0,
@@ -1363,6 +1433,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-nac-600mg-100caps",
+    sku: "SUP-0004",
     name: "NAC 600mg com Selênio 100 Cápsulas — NOW Foods",
     description: "N-Acetilcisteína de alta potência combinada com Selênio e Molibdênio para suporte pulmonar e hepático.",
     price: 189.0,
@@ -1382,6 +1453,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-liquid-melatonin-59ml",
+    sku: "SUP-0005",
     name: "Liquid Melatonin 59ml — NOW Foods",
     description: "Melatonina líquida de rápida absorção com conta-gotas dosador de fácil ajuste individual.",
     price: 119.0,
@@ -1401,6 +1473,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-creafort-300g",
+    sku: "SUP-0006",
     name: "Creafort Creapure 300g — Vitafor",
     description: "Creatina monohidratada alemã 100% Creapure®. Ganho de força e massa muscular sem retenção subcutânea.",
     price: 159.0,
@@ -1420,6 +1493,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-glutamax-300g",
+    sku: "SUP-0007",
     name: "Glutamax L-Glutamina 300g — Vitafor",
     description: "Módulo de L-Glutamina de alta pureza para nutrição enteral e oral. Zero açúcar e sem glúten.",
     price: 135.0,
@@ -1439,6 +1513,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-isofort-wpi-chocolate-900g",
+    sku: "SUP-0008",
     name: "Isofort WPI Chocolate 900g — Vitafor",
     description: "Whey Protein Isolate Premium com 92% de proteína, 6g de BCAA e 5g de Glutamina por porção.",
     price: 289.0,
@@ -1458,6 +1533,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-omegafor-plus-60caps",
+    sku: "SUP-0009",
     name: "Omegafor Plus 60 Cápsulas — Vitafor",
     description: "Ultra concentração com 990mg EPA (33%) e 660mg DHA (22%). Selo IFOS de pureza internacional.",
     price: 139.0,
@@ -1477,6 +1553,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-omegafor-vegan-60caps",
+    sku: "SUP-0010",
     name: "Omegafor Vegan 60 Cápsulas — Vitafor",
     description: "Ômega-3 100% de microalgas (Schizochytrium sp.) fornecendo 400mg DHA por dose em cápsula vegetal.",
     price: 189.0,
@@ -1496,6 +1573,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-coq10-200mg-60caps",
+    sku: "SUP-0011",
     name: "CoQ-10 200mg com Vitamina E e TCM 60 Cápsulas — Vitafor",
     description: "Dose clínica de 200mg de Coenzima Q10 associada a Triglicerídeos de Cadeia Média para máxima absorção.",
     price: 198.0,
@@ -1515,6 +1593,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "a-tal-da-castanha-amendoa-1l",
+    sku: "SGL-0001",
     name: "Leite de Amêndoa 100% Natural 1 Litro — A Tal da Castanha",
     description: "Bebida vegetal pura de amêndoas sem aditivos: apenas água e amêndoas! Rico em cálcio, zero açúcares.",
     price: 23.9,
@@ -1534,6 +1613,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "a-tal-da-castanha-original-1l",
+    sku: "SGL-0002",
     name: "Bebida de Castanha de Caju Orgânica 1 Litro — A Tal da Castanha",
     description: "Apenas 2 ingredientes: água e castanha-de-caju orgânica brasileira. Cremoso e versátil para cafés e receitas.",
     price: 22.9,
@@ -1553,6 +1633,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "a-tal-da-castanha-mixed-nuts-1l",
+    sku: "SGL-0003",
     name: "Bebida Mixed Nuts 1 Litro — A Tal da Castanha",
     description: "Blend nutritivo de Castanha de Caju, Castanha do Pará e Amêndoa com 7g de proteína por porção e selênio natural.",
     price: 24.9,
@@ -1572,6 +1653,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "notco-notmilk-original-1l",
+    sku: "SGL-0004",
     name: "NotMilk Original 1 Litro — NotCo",
     description: "Bebida vegetal com o mesmo sabor, textura e espuminha do leite de vaca, feita de plantas. Sem glúten, sem lactose.",
     price: 18.9,
@@ -1591,6 +1673,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "copra-leite-de-coco-beber-900ml",
+    sku: "SGL-0005",
     name: "Leite de Coco para Beber com Água de Coco 900ml — Copra",
     description: "Leite vegetal pronto para beber feito com água de coco natural. Leve, sem lactose e sem adição de açúcares.",
     price: 19.5,
@@ -1610,6 +1693,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-castanha-quinoa-70g",
+    sku: "SGL-0006",
     name: "Biscoito Castanha & Quinoa Defumado 70g — Alere",
     description: "Biscoito salgado crocante à base de biomassa de banana verde e quinoa. Sem glúten, assado e saudável.",
     price: 16.9,
@@ -1629,6 +1713,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-tomate-ora-pro-nobis-70g",
+    sku: "SGL-0007",
     name: "Biscoito Tomate com Ora-pro-nóbis 70g — Alere",
     description: "Biscoito salgado de biomassa com tomate seco e ora-pro-nóbis. Rico em fibras e ferro.",
     price: 16.9,
@@ -1648,6 +1733,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-banana-canela-30g",
+    sku: "SGL-0008",
     name: "Biscoito Doce Banana com Canela 30g — Alere",
     description: "Biscoito doce assado com biomassa de banana verde, sem adição de açúcares. Fonte de fibras.",
     price: 9.9,
@@ -1667,6 +1753,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-cookies-baunilha-chocolate-67g",
+    sku: "SGL-0009",
     name: "Cookies Baunilha & Gotas de Chocolate Zero 67g — Belive",
     description: "Cookies crocantes com crispies de quinoa e farinha de amêndoas. Zero açúcar, sem glúten e sem leite.",
     price: 11.9,
@@ -1686,6 +1773,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-protein-brownie-double-chocolate",
+    sku: "SGL-0010",
     name: "Protein Brownie Double Chocolate 40g — Belive",
     description: "Brownie fofinho e úmido enriquecido com proteínas, zero açúcar e rico em fibras prebióticas.",
     price: 9.9,
@@ -1705,6 +1793,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-pao-de-mel-zero-45g",
+    sku: "SGL-0011",
     name: "Pão de Mel com Cobertura de Chocolate Zero Açúcar 45g — Belive",
     description: "Massa de especiarias macia e aromática coberta com chocolate nobre sem açúcar. Sem glúten, sem leite.",
     price: 10.9,
@@ -1724,6 +1813,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-paozinho-batata-198g",
+    sku: "SGL-0012",
     name: "Pãozinho de Batata Sem Glúten e Sem Leite 198g — Belive",
     description: "Pãozinhos supermacios feitos com batata e fécula nobre. Perfeitos para aquecer na frigideira ou forno.",
     price: 26.9,
@@ -1743,6 +1833,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-mandioca-chips-sal-rosa-50g",
+    sku: "SGL-0013",
     name: "Mandioca Chips Sal Rosa do Himalaia 50g — Belive",
     description: "Chips de mandioca cortadas fininhas e crocantes com sal rosa do Himalaia. Sem glúten, 100% vegetal.",
     price: 9.5,
@@ -1762,6 +1853,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "feita-croc-apple-40g",
+    sku: "SGL-0014",
     name: "Feita Croc Apple Maçã Crocante 40g",
     description: "Maçã liofilizada crocante sem adição de açúcares, sem fritura e sem glúten.",
     price: 14.5,
@@ -1781,6 +1873,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "crock-cereal-aveia-sem-gluten-flocos-finos-200g",
+    sku: "SGL-0015",
     name: "Aveia Sem Glúten Flocos Finos 200g — Crock Cereal",
     description: "Aveia pura certificada sem glúten desde o plantio até o envase. Rica em beta-glucanas.",
     price: 12.9,
@@ -1800,6 +1893,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "konjac-massa-mf-bucatini-270g",
+    sku: "SGL-0016",
     name: "Massa de Fibra Konjac Bucatini Zero Calorias 270g — Konjac Massa MF",
     description: "Apenas 9 calorias por 100g! Feito da fibra solúvel glucomannan. Sem glúten, sem carboidratos, pronto em 2 min.",
     price: 28.9,
@@ -1819,6 +1913,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "konjac-massa-mf-lasanha-270g",
+    sku: "SGL-0017",
     name: "Massa de Fibra Konjac Lasanha 270g — Konjac Massa MF",
     description: "Lâminas de massa de fibra Konjac para montagem de lasanhas low carb e cetogênicas.",
     price: 28.9,
@@ -1838,6 +1933,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "ceres-talharim-grao-de-bico-200g",
+    sku: "SGL-0018",
     name: "Talharim 100% Grão-de-Bico Artesanal 200g — Ceres Brasil",
     description: "Massa seca artesanal feita com farinha 100% pura de grão-de-bico. 20g de proteína por 100g e zero glúten.",
     price: 21.9,
@@ -1857,6 +1953,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "urbano-massa-arroz-penne-500g",
+    sku: "SGL-0019",
     name: "Massa de Arroz Penne Zero Glúten 500g — Urbano",
     description: "Massa alimentícia de arroz premium, leve, sem glúten e com textura al dente perfeita.",
     price: 11.9,
@@ -1876,6 +1973,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "casarao-penne-espinafre-berinjela-300g",
+    sku: "SGL-0020",
     name: "Massa Gourmet Penne Espinafre & Berinjela 300g — Casarão",
     description: "Massa de arroz com 100% farinhas vegetais de espinafre, berinjela e chia. Fonte de fibras e proteínas.",
     price: 17.5,
@@ -1895,6 +1993,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "casarao-lasanha-caseira-tradicional-300g",
+    sku: "SGL-0021",
     name: "Massa de Arroz para Lasanha Caseira 300g — Casarão",
     description: "Massa especial de arroz para montagem direta de lasanha no forno. Sem pré-cozimento, sem glúten.",
     price: 18.9,
@@ -1914,6 +2013,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "nazinha-sequilhos-coco-300g",
+    sku: "SGL-0022",
     name: "Sequilhos Clássicos Sabor Coco 300g — Nazinha",
     description: "Sequilhos tradicionais crocantes que derretem na boca. Sem glúten e sem lactose.",
     price: 14.9,
@@ -1933,6 +2033,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "nazinha-sequilhos-maracuja-zero-120g",
+    sku: "SGL-0023",
     name: "Sequilhos Sabor Maracujá Zero Açúcar 120g — Nazinha",
     description: "Sequilhos de maracujá sem adição de açúcares, sem glúten e sem lactose. Fonte de fibras.",
     price: 12.9,
@@ -1952,6 +2053,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "souly-laranja-moro-po-300g",
+    sku: "ORG-0001",
     name: "Laranja Moro da Sicília em Pó 300g — Souly Superfoods",
     description: "Autêntica Laranja Moro cultivada aos pés do Vulcão Etna na Sicília. Rica em antocianina C3G para controle de gordura.",
     price: 179.0,
@@ -1971,6 +2073,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "souly-feno-grego-po-60g",
+    sku: "ORG-0002",
     name: "Feno Grego Puro da Índia 60g — Souly Superfoods",
     description: "Sementes nobres de Trigonella foenum-graecum selecionadas e moídas. Controle glicêmico e suporte hormonal.",
     price: 49.0,
@@ -1990,6 +2093,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "souly-canela-do-ceilao-120g",
+    sku: "ORG-0003",
     name: "Verdadeira Canela do Ceilão em Pó 120g — Souly",
     description: "A autêntica Canela do Ceilão (Cinnamomum verum) originária do Sri Lanka. Baixíssimo teor de cumarina, segura para consumo diário.",
     price: 89.0,
@@ -2009,6 +2113,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-stevia-liquida-30ml",
+    sku: "ORG-0004",
     name: "Adoçante Stevia Líquido 30ml — Color Andina Foods",
     description: "Glicosídeos de esteviol puros de alta pureza sem sabor residual amargo. Zero calorias, zero sódio, vegano.",
     price: 38.0,
@@ -2028,6 +2133,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-stevia-saches-50un",
+    sku: "ORG-0005",
     name: "Stevia em Sachês 50 unidades (30g) — Color Andina Foods",
     description: "50 sachês individuais de adoçante natural de estévia, eritritol e taumatina. Sem residual, prático para levar.",
     price: 34.0,
@@ -2047,6 +2153,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-cacau-selvagem-200g",
+    sku: "ORG-0006",
     name: "Cacau Selvagem 100% Puro Cacau 200g — Color Andina Foods",
     description: "Cacau selvagem colhido na floresta amazônica preservando a nobre manteiga de cacau original. Sabor intenso.",
     price: 49.0,
@@ -2066,6 +2173,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-red-maca-100g",
+    sku: "ORG-0007",
     name: "Farinha de Red Maca Ancestral Indígena 100g — Color Andina Foods",
     description: "Maca Vermelha agroecológica original dos Andes peruanos. Seca ao sol, raw, foco na próstata e densidade óssea.",
     price: 45.0,
@@ -2085,6 +2193,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-curcuma-longa-100g",
+    sku: "ORG-0008",
     name: "Cúrcuma Longa Plantio Próprio 100g — Color Andina Foods",
     description: "Cúrcuma longa pura com resgate da semente nativa ancestral. Sem amido adicionado, sem corantes.",
     price: 32.0,
@@ -2104,6 +2213,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "color-andina-urucum-do-pilao-50g",
+    sku: "ORG-0009",
     name: "Urucum do Pilão (Colorau Mineiro Artesanal) 50g — Color Andina",
     description: "Colorau artesanal pilado no Sítio Recreio em Minas Gerais. Sem farinha de milho, apenas urucum puro.",
     price: 28.0,
@@ -2124,6 +2234,7 @@ export const AMARYLLIS_PRODUCTS = [
 
   {
     id: "vitafor-vitamina-b12-gotas-30ml",
+    sku: "SUP-0012",
     name: "Vitamina B12 Gotas 9,9mcg 30ml — Vitafor",
     description: "Suplemento alimentar de vitamina B12 (metilcobalamina) em solução gotas de alta absorção. Auxilia no funcionamento do sistema imune, no metabolismo energético e na formação de células vermelhas do sangue. Vegano e prático.",
     price: 49.0,
@@ -2143,6 +2254,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-nac-60caps",
+    sku: "SUP-0013",
     name: "NAC 600mg 60 Cápsulas — Vitafor",
     description: "N-Acetil L-Cisteína (NAC) isolada de alta pureza em cápsulas vegetais. Precursor direto da glutationa, o antioxidante mestre do organismo. Suporte celular e respiratório.",
     price: 89.0,
@@ -2162,6 +2274,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-profem-oleo-primula-60caps",
+    sku: "SUP-0014",
     name: "Profem Óleo de Prímula 60 Cápsulas — Vitafor",
     description: "100% puro óleo de prímula rico em Ácido Gama-Linolênico (GLA), um ácido graxo essencial da família ômega-6. Auxilia no equilíbrio e bem-estar feminino, especialmente nos períodos de TPM e menopausa.",
     price: 68.0,
@@ -2181,6 +2294,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-resveratrol-plus-60caps",
+    sku: "SUP-0015",
     name: "Resveratrol Plus com Ácido Hialurônico e CoQ10 60 Cápsulas — Vitafor",
     description: "Fórmula antioxidante premium combinando trans-resveratrol puro, ácido hialurônico, coenzima Q10 e vitaminas antioxidantes. Suporte anti-aging celular e cardiovascular.",
     price: 149.0,
@@ -2200,6 +2314,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "vitafor-omega-3-epa-dha-120caps",
+    sku: "SUP-0016",
     name: "Ômega 3 EPA DHA 120 Cápsulas — Vitafor",
     description: "Óleo de peixe puro com certificação internacional IFOS, fonte de 540mg EPA e 360mg DHA por dose. Isento de metais pesados, essencial para saúde cardiovascular e cognitiva.",
     price: 98.0,
@@ -2219,6 +2334,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-vitamin-e-400-100softgels",
+    sku: "SUP-0017",
     name: "Vitamin E-400 UI 100 Softgels — NOW Foods",
     description: "Vitamina E pura de origem vegetal (d-alfa tocoferol com tocoferóis mistos). Potente antioxidante solúvel em gordura que protege as células contra o estresse oxidativo e apoia a saúde cardiovascular.",
     price: 169.0,
@@ -2238,6 +2354,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-garlic-oil-1500mg-100softgels",
+    sku: "SUP-0018",
     name: "Garlic Oil 1500mg Concentrado 100 Softgels — NOW Foods",
     description: "Óleo de alho integral equivalente a 1.500mg de dente de alho fresco por cápsula. Tradicionalmente utilizado para apoiar a saúde do coração, circulação e sistema imunológico natural.",
     price: 139.0,
@@ -2257,6 +2374,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-inositol-500mg-100caps",
+    sku: "SUP-0019",
     name: "Inositol 500mg 100 Cápsulas Vegetais — NOW Foods",
     description: "Mio-Inositol em cápsulas vegetais. Nutriente chave para a sinalização de neurotransmissores (como serotonina e dopamina), equilíbrio hormonal feminino e metabolismo da glicose.",
     price: 159.0,
@@ -2276,6 +2394,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "now-coq10-50mg-50softgels",
+    sku: "SUP-0020",
     name: "CoQ10 50mg com Selênio 50 Softgels — NOW Foods",
     description: "Coenzima Q10 de grau farmacêutico combinada com selênio e vitamina E. Fundamental para a produção de energia mitocondrial (ATP) nas células cardíacas e vigor físico.",
     price: 179.0,
@@ -2295,6 +2414,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-bolinho-cenoura-chocolate-40g",
+    sku: "SGL-0024",
     name: "Bolinho de Cenoura com Recheio de Chocolate 40g — Belive",
     description: "Bolinho fofinho e delicioso sabor cenoura com gotas e recheio cremoso de chocolate. 100% sem glúten, sem leite/lactose e zero adição de açúcares.",
     price: 7.5,
@@ -2314,6 +2434,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-bolinho-double-chocolate-40g",
+    sku: "SGL-0025",
     name: "Bolinho Double Chocolate Zero Açúcar 40g — Belive",
     description: "Massa macia e recheio intenso de cacau para os apaixonados por chocolate. Isento de glúten, leite e açúcares adicionados.",
     price: 7.5,
@@ -2333,6 +2454,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-bolinho-coco-chocolate-40g",
+    sku: "SGL-0026",
     name: "Bolinho de Coco com Gotas de Chocolate 40g — Belive",
     description: "A combinação clássica de coco ralado com gotas de chocolate em versão saudável e sem glúten. Sem leite e zero açúcar.",
     price: 7.5,
@@ -2352,6 +2474,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-bolinho-laranja-chocolate-40g",
+    sku: "SGL-0027",
     name: "Bolinho de Laranja com Gotas de Chocolate 40g — Belive",
     description: "Toque cítrico natural da laranja com gotas suaves de chocolate nobre. Zero glúten e sem lactose.",
     price: 7.5,
@@ -2371,6 +2494,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-paozinho-cenoura-200g",
+    sku: "SGL-0028",
     name: "Pãozinho de Cenoura Super Macio 200g — Belive",
     description: "Pão de cenoura artesanal super macio, formulado sem glúten e sem leite. Ideal para sanduíches e café da manhã nutritivo.",
     price: 22.9,
@@ -2390,6 +2514,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-mandioca-chips-chimichurri-50g",
+    sku: "SGL-0029",
     name: "Mandioca Chips Chimichurri 50g — Belive",
     description: "Chips crocantes de mandioca selecionada temperados com ervas aromáticas de chimichurri e sal rosa do Himalaia. Não transgênico e sem glúten.",
     price: 10.9,
@@ -2409,6 +2534,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "belive-snack-pizza-50g",
+    sku: "SGL-0030",
     name: "Snack Assado Sabor Pizza com Arroz e Quinoa 50g — Belive",
     description: "Snack assado 100% vegetal com arroz, quinoa e lentilha sabor tradicional de pizza. Crocante, sem glúten e sem leite.",
     price: 9.9,
@@ -2428,6 +2554,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-cacau-avela-30g",
+    sku: "SGL-0031",
     name: "Biscoito de Cacau com Avelã 30g — Alere Gourmet",
     description: "Snack doce feito com biomassa de banana verde, puro cacau e pedacinhos de avelã. Rico em fibras e proteína vegetal, sem adição de açúcares.",
     price: 9.9,
@@ -2447,6 +2574,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-castanha-cebolinha-70g",
+    sku: "SGL-0032",
     name: "Biscoito Castanha de Caju e Cebolinha 70g — Alere Gourmet",
     description: "Biscoito salgado à base de biomassa de banana verde com castanha-de-caju torrada e cebolinha fresca. 100% natural e sem glúten.",
     price: 16.9,
@@ -2466,6 +2594,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-nutritional-yeast-alecrim-70g",
+    sku: "SGL-0033",
     name: "Biscoito Nutritional Yeast com Alecrim 70g — Alere Gourmet",
     description: "Snack funcional elaborado com levedura nutricional (fonte de vitaminas do complexo B) e toque herbal de alecrim. Sabor que remete ao queijo, 100% plant-based.",
     price: 16.9,
@@ -2485,6 +2614,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-polvilho-pipoca-40g",
+    sku: "SGL-0034",
     name: "Biscoito de Polvilho com Farinha de Pipoca 40g — Alere Gourmet",
     description: "Releitura saudável do biscoito de polvilho combinando a leveza do polvilho com os polifenóis da farinha de pipoca integral. Super crocante.",
     price: 11.9,
@@ -2504,6 +2634,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "alere-biscoito-alho-poro-55g",
+    sku: "SGL-0035",
     name: "Biscoito Proteico com Alho-Poró 55g — Alere Gourmet",
     description: "Biscoito salgado proteico à base de biomassa de banana verde e aroma autêntico de alho-poró. Sem glúten, vegano e fonte de saciedade.",
     price: 15.9,
@@ -2523,6 +2654,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "crock-cereal-farelo-aveia-sem-gluten-200g",
+    sku: "SGL-0036",
     name: "Farelo de Aveia Sem Glúten 200g — Crock Cereal",
     description: "A camada mais nobre da aveia, concentrada em betaglucanas solúveis que auxiliam no controle do colesterol e na saciedade. Certificada sem glúten.",
     price: 13.9,
@@ -2542,6 +2674,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "crock-cereal-aveia-flocos-grossos-200g",
+    sku: "SGL-0037",
     name: "Aveia em Flocos Grossos Sem Glúten 200g — Crock Cereal",
     description: "Grãos inteiros prensados de aveia selecionada sem contaminação cruzada. Textura perfeita para granolas caseiras, cookies e mingaus rústicos.",
     price: 12.9,
@@ -2561,6 +2694,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "crock-cereal-farinha-aveia-sem-gluten-200g",
+    sku: "SGL-0038",
     name: "Farinha de Aveia Sem Glúten 200g — Crock Cereal",
     description: "Farinha pura e finamente moída de aveia sem glúten. Substitui a farinha de trigo em bolos, panquecas e pães saudáveis com textura leve.",
     price: 12.9,
@@ -2580,6 +2714,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "konjac-massa-mf-noodles-270g",
+    sku: "SGL-0039",
     name: "Konjac Massa MF Tipo Noodles 270g",
     description: "Massa alimentar à base de fibra glucomanan de Konjac. Apenas 9 calorias por 100g, zero carboidratos líquidos, sem glúten e sem sódio. Pronta em 2 minutos.",
     price: 27.9,
@@ -2599,6 +2734,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "urbano-massa-arroz-parafuso-500g",
+    sku: "SGL-0040",
     name: "Massa de Arroz Parafuso (Fusilli) 500g — Urbano",
     description: "Macarrão 100% vegetal elaborado com farinha de arroz selecionada. Cozimento uniforme al dente, seguro para celíacos e livre de transgênicos.",
     price: 11.9,
@@ -2618,6 +2754,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "harts-natural-granola-keto-low-carb-300g",
+    sku: "ORG-0010",
     name: "Granola Keto Low Carb 300g — Hart's Natural",
     description: "Granola plant-based sem grãos (grain-free), feita com amêndoas, coco, castanha-de-caju, semente de abóbora e chia. Zero adição de açúcares, cetogênica e crocante.",
     price: 38.9,
@@ -2637,6 +2774,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "harts-natural-granola-keto-protein-sal-marinho-200g",
+    sku: "ORG-0011",
     name: "Granola Keto Protein Sal Marinho 200g — Hart's Natural",
     description: "Granola salgada proteica com 28g de proteína por porção. Castanhas nobres, sal marinho e sementes germinadas para saladas e lanches rápidos.",
     price: 32.9,
@@ -2656,6 +2794,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "risovita-leite-de-arroz-original-1l",
+    sku: "SGL-0041",
     name: "Bebida Vegetal de Arroz Original 1 Litro — RisoVita",
     description: "Leite vegetal 100% à base de arroz, enriquecido com cálcio. Naturalmente doce, sem colesterol, sem lactose e sem adição de açúcares.",
     price: 16.9,
@@ -2675,6 +2814,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "a-tal-da-castanha-caju-para-1l",
+    sku: "SGL-0042",
     name: "Bebida Vegetal Caju + Pará 1 Litro — A Tal da Castanha",
     description: "Apenas 2 ingredientes: água e castanhas brasileiras orgânicas (caju e castanha-do-pará). Rica em selênio natural, sem gomas e sem espessantes.",
     price: 21.9,
@@ -2694,6 +2834,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "aecia-geleia-organica-figo-200g",
+    sku: "ORG-0012",
     name: "Geleia de Figo Orgânica 200g — Aecia Ecovida",
     description: "Geleia artesanal de figos maduros cultivados pela agricultura familiar orgânica certificada (Rede Ecovida). Sabor puro da fruta, sem conservantes químicos.",
     price: 26.5,
@@ -2713,6 +2854,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-anis-estrelado-100ml",
+    sku: "FIT-0021",
     name: "Tintura de Anis Estrelado 100ml — Panizza",
     description: "Extrato vegetal concentrado de Illicium verum. Tradicionalmente utilizado no suporte digestivo, alívio de cólicas e gases, com aroma doce característico.",
     price: 42.0,
@@ -2732,6 +2874,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-dente-de-leao-100ml",
+    sku: "FIT-0022",
     name: "Tintura de Dente de Leão 100ml — Panizza",
     description: "Extrato de Taraxacum officinale. Excelente suporte para a saúde hepática, desintoxicação natural e diurese suave.",
     price: 42.0,
@@ -2751,6 +2894,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-eucalipto-100ml",
+    sku: "FIT-0023",
     name: "Tintura de Eucalipto 100ml — Panizza",
     description: "Tintura de Eucalyptus globulus rica em eucaliptol. Auxilia no conforto das vias respiratórias e na respiração livre.",
     price: 38.0,
@@ -2770,6 +2914,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-garcinia-100ml",
+    sku: "FIT-0024",
     name: "Tintura de Garcinia Cambogia 100ml — Panizza",
     description: "Extrato vegetal concentrado fonte de Ácido Hidroxicítrico (HCA). Auxilia na modulação do apetite e no metabolismo dos carboidratos.",
     price: 45.0,
@@ -2789,6 +2934,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-equinacea-100ml",
+    sku: "FIT-0025",
     name: "Tintura de Equinácea 100ml — Panizza",
     description: "Extrato concentrado de Echinacea purpurea. Reconhecido pelo suporte imunológico e fortalecimento das defesas naturais do corpo.",
     price: 46.0,
@@ -2808,6 +2954,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-hiperico-100ml",
+    sku: "FIT-0026",
     name: "Tintura de Hipérico (Erva de São João) 100ml — Panizza",
     description: "Extrato de Hypericum perforatum. Utilizado na fitoterapia para auxiliar no equilíbrio emocional, combate ao desânimo e melhora do humor.",
     price: 46.0,
@@ -2827,6 +2974,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-kava-kava-100ml",
+    sku: "FIT-0027",
     name: "Tintura de Kava Kava 100ml — Panizza",
     description: "Extrato de Piper methysticum. Famoso por sua potente ação relaxante, alívio do estresse físico e mental e relaxamento muscular.",
     price: 48.0,
@@ -2846,6 +2994,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-melissa-100ml",
+    sku: "FIT-0028",
     name: "Tintura de Melissa (Erva Cidreira) 100ml — Panizza",
     description: "Extrato botânico de Melissa officinalis. Calmante suave, auxilia no sono reparador e na digestão tranquila.",
     price: 39.0,
@@ -2865,6 +3014,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-menta-piperita-100ml",
+    sku: "FIT-0029",
     name: "Tintura de Menta Piperita 100ml — Panizza",
     description: "Extrato de Mentha piperita rico em mentol natural. Alívio de desconfortos gástricos, frescor e relaxamento digestivo.",
     price: 38.0,
@@ -2884,6 +3034,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-losna-100ml",
+    sku: "FIT-0030",
     name: "Tintura de Losna 100ml — Panizza",
     description: "Extrato de Artemisia absinthium. Princípio amargo tradicional para digestão pesada e equilíbrio do trato gastrointestinal.",
     price: 39.0,
@@ -2903,6 +3054,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-oregano-100ml",
+    sku: "FIT-0031",
     name: "Tintura de Orégano 100ml — Panizza",
     description: "Extrato rico em carvacrol e timol. Conhecido por suas propriedades antimicrobianas e antioxidantes naturais.",
     price: 44.0,
@@ -2922,6 +3074,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-pau-darco-100ml",
+    sku: "FIT-0032",
     name: "Tintura de Pau d'Arco (Ipê Roxo) 100ml — Panizza",
     description: "Extrato da casca de Tabebuia avellanedae. Tradicionalmente empregado no suporte imunitário e depuração do organismo.",
     price: 44.0,
@@ -2941,6 +3094,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-pfaffia-ginseng-100ml",
+    sku: "FIT-0033",
     name: "Tintura de Pfaffia (Ginseng Brasileiro) 100ml — Panizza",
     description: "Extrato de raiz de Pfaffia paniculata. Adaptógeno natural que combate a fadiga física e mental e apoia a vitalidade diária.",
     price: 44.0,
@@ -2960,6 +3114,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-quebra-pedra-100ml",
+    sku: "FIT-0034",
     name: "Tintura de Quebra Pedra 100ml — Panizza",
     description: "Extrato botânico de Phyllanthus niruri. Apoia o conforto do trato urinário e a saúde dos rins.",
     price: 39.0,
@@ -2979,6 +3134,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-roselis-hibisco-100ml",
+    sku: "FIT-0035",
     name: "Tintura de Roselis (Hibisco) 100ml — Panizza",
     description: "Extrato de flores de Hibiscus sabdariffa. Ação diurética suave, antioxidante e suporte ao controle da retenção de líquidos.",
     price: 39.0,
@@ -2998,6 +3154,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-salsaparrilha-100ml",
+    sku: "FIT-0036",
     name: "Tintura de Salsaparrilha 100ml — Panizza",
     description: "Extrato botânico de Smilax officinalis. Depurativo tradicional utilizado para apoiar a saúde da pele e o bem-estar articular.",
     price: 42.0,
@@ -3017,6 +3174,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-tintura-thuia-100ml",
+    sku: "FIT-0037",
     name: "Tintura de Thuia Ocidentalis 100ml — Panizza",
     description: "Extrato vegetal de Thuja occidentalis. Uso tradicional consagrado na fitoterapia e homeopatia integrativa.",
     price: 44.0,
@@ -3036,6 +3194,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "panizza-amidalizza-spray-propolis-30ml",
+    sku: "FIT-0038",
     name: "Aromatizante Bucal Amidalizza com Própolis 30ml — Panizza",
     description: "Spray bucal formulado com extrato purificado de própolis verde e ervas aromáticas. Hálito puro e conforto para a garganta.",
     price: 28.0,
@@ -3055,6 +3214,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-abacateiro-folhas-30g",
+    sku: "FIT-0039",
     name: "Chá de Abacateiro Folhas e Talos 30g — Vale do Ribeira",
     description: "Folhas secas selecionadas de Persea americana. Ação diurética natural, tradicionalmente utilizada para o equilíbrio renal e retenção hídrica.",
     price: 12.0,
@@ -3074,6 +3234,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-arruda-30g",
+    sku: "FIT-0040",
     name: "Chá de Arruda Erva Pura 30g — Vale do Ribeira",
     description: "Ruta graveolens seca de colheita controlada. Erva tradicional da fitoterapia popular brasileira.",
     price: 12.0,
@@ -3093,6 +3254,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-bardana-folhas-30g",
+    sku: "FIT-0041",
     name: "Chá de Bardana Folhas 30g — Vale do Ribeira",
     description: "Arctium lappa de alta pureza. Excelente depurativo natural que auxilia na saúde cutânea e na eliminação de toxinas.",
     price: 14.0,
@@ -3112,6 +3274,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-buchinha-do-norte-frutos-30g",
+    sku: "FIT-0042",
     name: "Chá de Buchinha do Norte Frutos 30g — Vale do Ribeira",
     description: "Luffa operculata inteira e seca. Utilizada popularmente em inalações tradicionais para desobstrução das vias nasais.",
     price: 16.0,
@@ -3131,6 +3294,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-chapeu-de-couro-folhas-20g",
+    sku: "FIT-0043",
     name: "Chá de Chapéu de Couro Folhas 20g — Vale do Ribeira",
     description: "Echinodorus grandiflorus selecionado. Diurético natural e suporte articular amplamente consagrado.",
     price: 13.0,
@@ -3150,6 +3314,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-anis-estrelado-frutos-30g",
+    sku: "FIT-0044",
     name: "Chá de Anis Estrelado Frutos 30g — Vale do Ribeira",
     description: "Frutos inteiros aromáticos de Illicium verum. Sabor adocicado e digestivo, ideal para infusões e caldos reconfortantes.",
     price: 16.0,
@@ -3169,6 +3334,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-carqueja-doce-30g",
+    sku: "FIT-0045",
     name: "Chá de Carqueja Doce 30g — Vale do Ribeira",
     description: "Baccharis articulata aérea. Planta digestiva suave que apoia a função hepática e a sensação de leveza após as refeições.",
     price: 12.0,
@@ -3188,6 +3354,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-cardo-mariano-20g",
+    sku: "FIT-0046",
     name: "Chá de Cardo Mariano 20g — Vale do Ribeira",
     description: "Silybum marianum rico em silimarina. Potente protetor e regenerador natural das células do fígado.",
     price: 16.0,
@@ -3207,6 +3374,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-capim-limao-folhas-30g",
+    sku: "FIT-0047",
     name: "Chá de Capim Limão Folhas 30g — Vale do Ribeira",
     description: "Cymbopogon citratus aromático. Calmante suave, digestivo e perfeito para relaxar no final da tarde.",
     price: 12.0,
@@ -3226,6 +3394,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-calendula-flores-30g",
+    sku: "FIT-0048",
     name: "Chá de Calêndula Flores Puras 30g — Vale do Ribeira",
     description: "Flores inteiras desidratadas de Calendula officinalis. Propriedades suavizantes, antissépticas e regeneradoras para mucosas e pele.",
     price: 14.0,
@@ -3245,6 +3414,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-cavalinha-parte-aerea-30g",
+    sku: "FIT-0049",
     name: "Chá de Cavalinha Parte Aérea 30g — Vale do Ribeira",
     description: "Equisetum arvense concentrada em silício vegetal orgânico. Auxilia na diurese e na vitalidade de cabelos e unhas.",
     price: 13.0,
@@ -3264,6 +3434,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-canela-de-velho-folhas-30g",
+    sku: "FIT-0050",
     name: "Chá de Canela de Velho Folhas 30g — Vale do Ribeira",
     description: "Miconia albicans autêntica do cerrado. Amplamente utilizada no alívio de dores nas articulações, joelhos e coluna.",
     price: 15.0,
@@ -3283,6 +3454,7 @@ export const AMARYLLIS_PRODUCTS = [
   },
   {
     id: "cha-dente-de-leao-aerea-30g",
+    sku: "FIT-0051",
     name: "Chá de Dente de Leão 30g — Vale do Ribeira",
     description: "Taraxacum officinale aérea. Desintoxicante hepático e estimulante da digestão e do apetite saudável.",
     price: 14.0,
